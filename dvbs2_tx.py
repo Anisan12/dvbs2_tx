@@ -142,7 +142,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
                   1.0, 1.0, 1.0, 1.0, 1.0]
         for i in xrange(1):
             if len(labels[i]) == 0:
-                self.qtgui_freq_sink.set_line_label(i, "Data {0}".format(i))
+                self.qtgui_freq_sink.set_line_label(i, "FFT Signal".format(i))
             else:
                 self.qtgui_freq_sink.set_line_label(i, labels[i])
             self.qtgui_freq_sink.set_line_width(i, widths[i])
