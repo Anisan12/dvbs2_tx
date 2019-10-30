@@ -1,0 +1,17 @@
+sudo apt install git
+sudo apt install cmake
+sudo apt-get install libboost-all-dev
+sudo apt install gnuradio
+sudo apt-get install doxygen
+sudo apt install graphviz
+sudo apt install swig
+
+git clone https://github.com/drmpeg/gr-dvbs2
+cd gr-dvbs2/
+mkdir build
+cd build
+cmake ../
+make
+sudo make install
+sudo ldconfig
+
