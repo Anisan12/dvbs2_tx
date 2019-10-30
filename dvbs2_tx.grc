@@ -58,7 +58,7 @@
     </param>
     <param>
       <key>realtime_scheduling</key>
-      <value></value>
+      <value>1</value>
     </param>
     <param>
       <key>run_command</key>
@@ -105,7 +105,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(896, 452)</value>
+      <value>(1096, 612)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -149,7 +149,7 @@
     </param>
     <param>
       <key>num_opts</key>
-      <value>3</value>
+      <value>2</value>
     </param>
     <param>
       <key>option0</key>
@@ -157,7 +157,7 @@
     </param>
     <param>
       <key>option1</key>
-      <value>Medium</value>
+      <value>Short</value>
     </param>
     <param>
       <key>option2</key>
@@ -216,112 +216,6 @@
     </param>
   </block>
   <block>
-    <key>variable_qtgui_range</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>11</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(576, 452)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>code_rate</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Code Rate</value>
-    </param>
-    <param>
-      <key>min_len</key>
-      <value>200</value>
-    </param>
-    <param>
-      <key>orient</key>
-      <value>Qt.Horizontal</value>
-    </param>
-    <param>
-      <key>start</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>step</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>stop</key>
-      <value>11</value>
-    </param>
-    <param>
-      <key>rangeType</key>
-      <value>int</value>
-    </param>
-    <param>
-      <key>widget</key>
-      <value>slider</value>
-    </param>
-  </block>
-  <block>
-    <key>variable_qtgui_label</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>1/2     23/ 2322 232/32/3</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>formatter</key>
-      <value>None</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(704, 452)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>code_rate_label</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Code Rate</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>string</value>
-    </param>
-  </block>
-  <block>
     <key>variable_qtgui_chooser</key>
     <param>
       <key>comment</key>
@@ -329,7 +223,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>16APSK</value>
+      <value>"9/10"</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -337,11 +231,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(256, 452)</value>
+      <value>(776, 612)</value>
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>constellation_tab@2</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -349,7 +243,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>constellation</value>
+      <value>code_rate_16apsk</value>
     </param>
     <param>
       <key>label0</key>
@@ -373,7 +267,466 @@
     </param>
     <param>
       <key>label</key>
-      <value>Constellation</value>
+      <value>Code Rate</value>
+    </param>
+    <param>
+      <key>labels</key>
+      <value>[]</value>
+    </param>
+    <param>
+      <key>num_opts</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option0</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>option2</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option3</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>option4</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>options</key>
+      <value>[ "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.QHBoxLayout</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>radio_buttons</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_chooser</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"9/10"</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(928, 612)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value>constellation_tab@3</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>code_rate_32apsk</value>
+    </param>
+    <param>
+      <key>label0</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Code Rate</value>
+    </param>
+    <param>
+      <key>labels</key>
+      <value>[]</value>
+    </param>
+    <param>
+      <key>num_opts</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option0</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>option2</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option3</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>option4</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>options</key>
+      <value>["3/4", "4/5", "5/6", "8/9", "9/10"]</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.QHBoxLayout</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>radio_buttons</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_chooser</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"9/10"</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(624, 612)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value>constellation_tab@1</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>code_rate_8psk</value>
+    </param>
+    <param>
+      <key>label0</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Code Rate</value>
+    </param>
+    <param>
+      <key>labels</key>
+      <value>[]</value>
+    </param>
+    <param>
+      <key>num_opts</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option0</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>option2</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option3</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>option4</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>options</key>
+      <value>["3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.QHBoxLayout</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>radio_buttons</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_chooser</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"9/10"</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(472, 612)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value>constellation_tab@0</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>code_rate_qpsk</value>
+    </param>
+    <param>
+      <key>label0</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Code Rate</value>
+    </param>
+    <param>
+      <key>labels</key>
+      <value>[]</value>
+    </param>
+    <param>
+      <key>num_opts</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option0</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>option2</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option3</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>option4</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>options</key>
+      <value>["1/4", "1/3", "2/5", "1/2", "3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.QHBoxLayout</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>radio_buttons</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_range</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>0.1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(56, 452)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>noise</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Noise</value>
+    </param>
+    <param>
+      <key>min_len</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.Horizontal</value>
+    </param>
+    <param>
+      <key>start</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>step</key>
+      <value>0.01</value>
+    </param>
+    <param>
+      <key>stop</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>rangeType</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>counter_slider</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_chooser</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"Gaussian"</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(200, 452)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>noise_type</value>
+    </param>
+    <param>
+      <key>label0</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Noise Type</value>
     </param>
     <param>
       <key>labels</key>
@@ -385,19 +738,19 @@
     </param>
     <param>
       <key>option0</key>
-      <value>QPSK</value>
+      <value>"Uniform"</value>
     </param>
     <param>
       <key>option1</key>
-      <value>8PSK</value>
+      <value>"Gaussian"</value>
     </param>
     <param>
       <key>option2</key>
-      <value>16APSK</value>
+      <value>"Laplacian"</value>
     </param>
     <param>
       <key>option3</key>
-      <value>32APSK</value>
+      <value>"Impulse"</value>
     </param>
     <param>
       <key>option4</key>
@@ -428,6 +781,148 @@
     </param>
     <param>
       <key>value</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1096, 444)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pilots</value>
+    </param>
+    <param>
+      <key>label0</key>
+      <value>"On"</value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value>"Off"</value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Pilots</value>
+    </param>
+    <param>
+      <key>labels</key>
+      <value>[]</value>
+    </param>
+    <param>
+      <key>num_opts</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option0</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>option1</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option2</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option3</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>option4</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>options</key>
+      <value>[0, 1, 2]</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.QVBoxLayout</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>int</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>radio_buttons</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_label</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"labul</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>formatter</key>
+      <value>None</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1072, 272)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>qtgui_variable</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>label</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_chooser</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
       <value>0.2</value>
     </param>
     <param>
@@ -436,7 +931,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 452)</value>
+      <value>(184, 612)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -616,7 +1111,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(120, 452)</value>
+      <value>(56, 612)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -664,11 +1159,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_file_sink</key>
-    <param>
-      <key>append</key>
-      <value>False</value>
-    </param>
+    <key>blocks_add_xx</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -683,15 +1174,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>adv.cfile</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(800, 260)</value>
+      <value>(712, 352)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -699,15 +1186,23 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_file_sink_0</value>
+      <value>add_bloc</value>
     </param>
     <param>
       <key>type</key>
       <value>complex</value>
     </param>
     <param>
-      <key>unbuffered</key>
-      <value>False</value>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num_inputs</key>
+      <value>2</value>
     </param>
     <param>
       <key>vlen</key>
@@ -715,41 +1210,13 @@
     </param>
   </block>
   <block>
-    <key>dtv_dvb_bbheader_bb</key>
-    <param>
-      <key>mode</key>
-      <value>INPUTMODE_NORMAL</value>
-    </param>
+    <key>qtgui_tab_widget</key>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>rate1</key>
-      <value>C1_2</value>
-    </param>
-    <param>
-      <key>rate2</key>
-      <value>C1_3</value>
-    </param>
-    <param>
-      <key>rate3</key>
-      <value>C9_10</value>
-    </param>
-    <param>
-      <key>rate4</key>
-      <value>C1_5_MEDIUM</value>
-    </param>
-    <param>
-      <key>rate5</key>
-      <value>C1_4</value>
-    </param>
-    <param>
       <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
       <value></value>
     </param>
     <param>
@@ -757,20 +1224,12 @@
       <value>True</value>
     </param>
     <param>
-      <key>fecblocks</key>
-      <value>168</value>
-    </param>
-    <param>
-      <key>framesize1</key>
-      <value>FECFRAME_NORMAL</value>
-    </param>
-    <param>
-      <key>framesize2</key>
-      <value>FECFRAME_NORMAL</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(416, 20)</value>
+      <value>(328, 612)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
     </param>
     <param>
       <key>_rotation</key>
@@ -778,102 +1237,91 @@
     </param>
     <param>
       <key>id</key>
-      <value>dtv_bbheader</value>
+      <value>constellation_tab</value>
     </param>
     <param>
-      <key>inband</key>
-      <value>INBAND_OFF</value>
+      <key>label0</key>
+      <value>QPSK</value>
     </param>
     <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
+      <key>label1</key>
+      <value>8PSK</value>
     </param>
     <param>
-      <key>minoutbuf</key>
-      <value>0</value>
+      <key>label10</key>
+      <value>Tab 10</value>
     </param>
     <param>
-      <key>rolloff</key>
-      <value>RO_0_20</value>
+      <key>label11</key>
+      <value>Tab 11</value>
     </param>
     <param>
-      <key>standard</key>
-      <value>STANDARD_DVBS2</value>
+      <key>label12</key>
+      <value>Tab 12</value>
     </param>
     <param>
-      <key>tsrate</key>
-      <value>4000000</value>
-    </param>
-  </block>
-  <block>
-    <key>dtv_dvb_bbscrambler_bb</key>
-    <param>
-      <key>alias</key>
-      <value></value>
+      <key>label13</key>
+      <value>Tab 13</value>
     </param>
     <param>
-      <key>rate1</key>
-      <value>C1_2</value>
+      <key>label14</key>
+      <value>Tab 14</value>
     </param>
     <param>
-      <key>rate2</key>
-      <value>C1_3</value>
+      <key>label15</key>
+      <value>Tab 15</value>
     </param>
     <param>
-      <key>rate3</key>
-      <value>C9_10</value>
+      <key>label16</key>
+      <value>Tab 16</value>
     </param>
     <param>
-      <key>rate4</key>
-      <value>C1_5_MEDIUM</value>
+      <key>label17</key>
+      <value>Tab 17</value>
     </param>
     <param>
-      <key>rate5</key>
-      <value>C1_4</value>
+      <key>label18</key>
+      <value>Tab 18</value>
     </param>
     <param>
-      <key>comment</key>
-      <value></value>
+      <key>label19</key>
+      <value>Tab 19</value>
     </param>
     <param>
-      <key>affinity</key>
-      <value></value>
+      <key>label2</key>
+      <value>16APSK</value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
+      <key>label3</key>
+      <value>32APSK</value>
     </param>
     <param>
-      <key>framesize1</key>
-      <value>FECFRAME_NORMAL</value>
+      <key>label4</key>
+      <value>Tab 4</value>
     </param>
     <param>
-      <key>framesize2</key>
-      <value>FECFRAME_NORMAL</value>
+      <key>label5</key>
+      <value>Tab 5</value>
     </param>
     <param>
-      <key>_coordinate</key>
-      <value>(624, 28)</value>
+      <key>label6</key>
+      <value>Tab 6</value>
     </param>
     <param>
-      <key>_rotation</key>
-      <value>0</value>
+      <key>label7</key>
+      <value>Tab 7</value>
     </param>
     <param>
-      <key>id</key>
-      <value>dtv_bbscrambler</value>
+      <key>label8</key>
+      <value>Tab 8</value>
     </param>
     <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
+      <key>label9</key>
+      <value>Tab 9</value>
     </param>
     <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>standard</key>
-      <value>STANDARD_DVBS2</value>
+      <key>num_tabs</key>
+      <value>4</value>
     </param>
   </block>
   <block>
@@ -924,7 +1372,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(856, 28)</value>
+      <value>(800, 36)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -932,7 +1380,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>dtv_bch_encoder</value>
+      <value>dvb_bch</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -948,7 +1396,121 @@
     </param>
   </block>
   <block>
-    <key>dtv_dvbs2_interleaver_bb</key>
+    <key>dvbs2_bbheader_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>rate1</key>
+      <value>C9_10</value>
+    </param>
+    <param>
+      <key>rate2</key>
+      <value>C1_5_MEDIUM</value>
+    </param>
+    <param>
+      <key>rate3</key>
+      <value>C1_4</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>framesize</key>
+      <value>FECFRAME_NORMAL</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(384, 36)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>dvbs2_bbheader</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>rolloff</key>
+      <value>RO_0_20</value>
+    </param>
+  </block>
+  <block>
+    <key>dvbs2_bbscrambler_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>rate1</key>
+      <value>C9_10</value>
+    </param>
+    <param>
+      <key>rate2</key>
+      <value>C1_5_MEDIUM</value>
+    </param>
+    <param>
+      <key>rate3</key>
+      <value>C1_4</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>framesize</key>
+      <value>FECFRAME_NORMAL</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(592, 44)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>dvbs2_bbscrambler</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>dvbs2_interleaver_bb</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -987,7 +1549,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(184, 172)</value>
+      <value>(224, 172)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -995,7 +1557,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>dtv_interleaver</value>
+      <value>dvbs2_interleaver</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1007,29 +1569,21 @@
     </param>
   </block>
   <block>
-    <key>dtv_dvb_ldpc_bb</key>
+    <key>dvbs2_ldpc_bb</key>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
       <key>rate1</key>
-      <value>C1_2</value>
-    </param>
-    <param>
-      <key>rate2</key>
-      <value>C1_3</value>
-    </param>
-    <param>
-      <key>rate3</key>
       <value>C9_10</value>
     </param>
     <param>
-      <key>rate4</key>
+      <key>rate2</key>
       <value>C1_5_MEDIUM</value>
     </param>
     <param>
-      <key>rate5</key>
+      <key>rate3</key>
       <value>C1_4</value>
     </param>
     <param>
@@ -1049,16 +1603,12 @@
       <value>True</value>
     </param>
     <param>
-      <key>framesize1</key>
-      <value>FECFRAME_NORMAL</value>
-    </param>
-    <param>
-      <key>framesize2</key>
+      <key>framesize</key>
       <value>FECFRAME_NORMAL</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1064, 24)</value>
+      <value>(1000, 36)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1066,7 +1616,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>dtv_ldpc_encoder</value>
+      <value>dvbs2_ldpc</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1076,17 +1626,9 @@
       <key>minoutbuf</key>
       <value>0</value>
     </param>
-    <param>
-      <key>standard</key>
-      <value>STANDARD_DVBS2</value>
-    </param>
   </block>
   <block>
-    <key>dtv_dvbs2_modulator_bc</key>
-    <param>
-      <key>interpolation</key>
-      <value>INTERPOLATION_OFF</value>
-    </param>
+    <key>dvbs2_modulator_bc</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -1125,7 +1667,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(448, 164)</value>
+      <value>(456, 172)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1133,7 +1675,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>dtv_modulator</value>
+      <value>dvbs2_modulator</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1145,7 +1687,7 @@
     </param>
   </block>
   <block>
-    <key>dtv_dvbs2_physical_cc</key>
+    <key>dvbs2_physical_cc</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -1184,7 +1726,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(184, 320)</value>
+      <value>(240, 316)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1196,7 +1738,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>dtv_physical_framer</value>
+      <value>dvbs2_physical</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1208,7 +1750,7 @@
     </param>
     <param>
       <key>pilots</key>
-      <value>PILOTS_ON</value>
+      <value>PILOTS_OFF</value>
     </param>
   </block>
   <block>
@@ -1294,7 +1836,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/anisan/Downloads/adv16apsk910.ts</value>
+      <value>/home/anisan/dvbs2_tx/adv16apsk910.ts</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -1327,6 +1869,61 @@
     <param>
       <key>vlen</key>
       <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>analog_noise_source_x</key>
+    <param>
+      <key>amp</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(488, 420)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>noise_source</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>noise_type</key>
+      <value>analog.GR_GAUSSIAN</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0</value>
     </param>
   </block>
   <block>
@@ -1377,7 +1974,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(792, 164)</value>
+      <value>(856, 220)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1409,7 +2006,7 @@
     </param>
     <param>
       <key>label1</key>
-      <value></value>
+      <value>DVB-S2</value>
     </param>
     <param>
       <key>width1</key>
@@ -2300,7 +2897,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(976, 308)</value>
+      <value>(856, 324)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2452,69 +3049,75 @@
     </param>
   </block>
   <connection>
-    <source_block_id>dtv_bbheader</source_block_id>
-    <sink_block_id>dtv_bbscrambler</sink_block_id>
+    <source_block_id>add_bloc</source_block_id>
+    <sink_block_id>qtgui_freq_sink</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>dtv_bbscrambler</source_block_id>
-    <sink_block_id>dtv_bch_encoder</sink_block_id>
+    <source_block_id>add_bloc</source_block_id>
+    <sink_block_id>uhd_usrp_sink</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>dtv_bch_encoder</source_block_id>
-    <sink_block_id>dtv_ldpc_encoder</sink_block_id>
+    <source_block_id>dvb_bch</source_block_id>
+    <sink_block_id>dvbs2_ldpc</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>dtv_interleaver</source_block_id>
-    <sink_block_id>dtv_modulator</sink_block_id>
+    <source_block_id>dvbs2_bbheader</source_block_id>
+    <sink_block_id>dvbs2_bbscrambler</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>dtv_ldpc_encoder</source_block_id>
-    <sink_block_id>dtv_interleaver</sink_block_id>
+    <source_block_id>dvbs2_bbscrambler</source_block_id>
+    <sink_block_id>dvb_bch</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>dtv_modulator</source_block_id>
-    <sink_block_id>dtv_physical_framer</sink_block_id>
+    <source_block_id>dvbs2_interleaver</source_block_id>
+    <sink_block_id>dvbs2_modulator</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>dtv_physical_framer</source_block_id>
+    <source_block_id>dvbs2_ldpc</source_block_id>
+    <sink_block_id>dvbs2_interleaver</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>dvbs2_modulator</source_block_id>
+    <sink_block_id>dvbs2_physical</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>dvbs2_physical</source_block_id>
     <sink_block_id>fft_filter</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>fft_filter</source_block_id>
-    <sink_block_id>blocks_file_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>fft_filter</source_block_id>
-    <sink_block_id>qtgui_freq_sink</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>fft_filter</source_block_id>
-    <sink_block_id>uhd_usrp_sink</sink_block_id>
+    <sink_block_id>add_bloc</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>file_source</source_block_id>
-    <sink_block_id>dtv_bbheader</sink_block_id>
+    <sink_block_id>dvbs2_bbheader</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>noise_source</source_block_id>
+    <sink_block_id>add_bloc</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>1</sink_key>
   </connection>
 </flow_graph>

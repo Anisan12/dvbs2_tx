@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Dvbs2 Tx
-# Generated: Wed Oct 23 00:36:21 2019
+# Generated: Fri Oct 18 11:02:43 2019
 ##################################################
 
 from distutils.version import StrictVersion
@@ -23,7 +23,6 @@ from PyQt5 import Qt, QtCore
 from PyQt5.QtCore import QObject, pyqtSlot
 from gnuradio import analog
 from gnuradio import blocks
-from gnuradio import dtv
 from gnuradio import eng_notation
 from gnuradio import filter
 from gnuradio import gr
@@ -37,9 +36,20 @@ import dvbs2
 import pmt
 import sip
 import sys
+import os
 import time
 from gnuradio import qtgui
 
+### GLOBAL VARIABLES ###
+
+configPath = "dvbs2.conf"
+
+frame_size = 0
+code_rate = 10
+modulation = 3
+pilots = 0
+const_rolloff = 2
+rolloff = 0.2
 
 class dvbs2_tx(gr.top_block, Qt.QWidget):
 
@@ -67,25 +77,53 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.settings = Qt.QSettings("GNU Radio", "dvbs2_tx")
         self.restoreGeometry(self.settings.value("geometry", type=QtCore.QByteArray))
 
+        #### Initial Config ####
+        f = open(configPath, "r")
+        lines = f.readlines()
+
+        frame_size = int(lines[0])
+        code_rate = int(lines[1])
+        modulation = int(lines[2])
+        pilots = int(lines[3])
+        const_rolloff = int(lines[4])
+
+        f.close()
 
         ##################################################
         # Variables
         ##################################################
+        self.constellation_label = constellation_label = 'Current Constellation'
         self.symbol_rate = symbol_rate = 5000000
         self.tx_gain = tx_gain = 0
         self.taps = taps = 100
         self.samp_rate = samp_rate = symbol_rate * 2
-        self.rolloff = rolloff = 0.2
-        self.qtgui_variable = qtgui_variable = '"labul'
-        self.pilots = pilots = 0
+        self.pilots = pilots
         self.noise_type = noise_type = "Gaussian"
-        self.noise = noise = 0.1
-        self.code_rate_qpsk = code_rate_qpsk = "9/10"
-        self.code_rate_8psk = code_rate_8psk = "9/10"
-        self.code_rate_32apsk = code_rate_32apsk = "9/10"
-        self.code_rate_16apsk = code_rate_16apsk = "9/10"
+        self.noise = noise = 0.0
         self.center_freq = center_freq = 1280e6
-        self.FEC_Frame_size = FEC_Frame_size = 'Normal'
+        self.FEC_Frame_size = frame_size
+
+        if(const_rolloff == dvbs2.RO_0_20):
+            rolloff = 0.2
+        elif(const_rolloff == dvbs2.RO_0_25):
+            rolloff = 0.25
+        elif(const_rolloff == dvbs2.RO_0_35):
+            rolloff = 0.35
+        self.rolloff = rolloff
+
+        self.code_rate_qpsk = code_rate
+        if (code_rate >= dvbs2.C3_5):
+            self.code_rate_8psk = code_rate
+        else:
+            self.code_rate_8psk = dvbs2.C9_10
+        if (code_rate >= dvbs2.C2_3):
+            self.code_rate_16apsk = code_rate
+        else:
+            self.code_rate_16apsk = dvbs2.C9_10
+        if (code_rate >= dvbs2.C3_4):
+            self.code_rate_32apsk = code_rate
+        else:
+            self.code_rate_32apsk = dvbs2.C9_10
 
         ##################################################
         # Blocks
@@ -94,7 +132,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._tx_gain_win = RangeWidget(self._tx_gain_range, self.set_tx_gain, 'TX Gain (dB)', "counter_slider", float)
         self.top_grid_layout.addWidget(self._tx_gain_win)
         self._rolloff_options = (0.2, 0.25, 0.35, )
-        self._rolloff_labels = (str(self._rolloff_options[0]), str(self._rolloff_options[1]), str(self._rolloff_options[2]), )
+        self._rolloff_labels = ("0.20", "0.25", "0.35", )
         self._rolloff_tool_bar = Qt.QToolBar(self)
         self._rolloff_tool_bar.addWidget(Qt.QLabel('Rolloff'+": "))
         self._rolloff_combo_box = Qt.QComboBox()
@@ -137,17 +175,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.uhd_usrp_sink.set_samp_rate(samp_rate)
         self.uhd_usrp_sink.set_center_freq(center_freq, 0)
         self.uhd_usrp_sink.set_gain(tx_gain, 0)
-        self._qtgui_variable_tool_bar = Qt.QToolBar(self)
-
-        if None:
-          self._qtgui_variable_formatter = None
-        else:
-          self._qtgui_variable_formatter = lambda x: str(x)
-
-        self._qtgui_variable_tool_bar.addWidget(Qt.QLabel('label'+": "))
-        self._qtgui_variable_label = Qt.QLabel(str(self._qtgui_variable_formatter(self.qtgui_variable)))
-        self._qtgui_variable_tool_bar.addWidget(self._qtgui_variable_label)
-        self.top_grid_layout.addWidget(self._qtgui_variable_tool_bar)
         self.qtgui_freq_sink = qtgui.freq_sink_c(
         	1024, #size
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
@@ -166,20 +193,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.qtgui_freq_sink.enable_axis_labels(True)
         self.qtgui_freq_sink.enable_control_panel(False)
 
-        if not True:
-          self.qtgui_freq_sink.disable_legend()
-
-        if "complex" == "float" or "complex" == "msg_float":
-          self.qtgui_freq_sink.set_plot_pos_half(not True)
-
-        labels = ['DVB-S2', '', '', '', '',
-                  '', '', '', '', '']
-        widths = [1, 1, 1, 1, 1,
-                  1, 1, 1, 1, 1]
+        labels = ['DVB-S2', '', '', '', '', '', '', '', '', '']
+        widths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         colors = ["blue", "red", "green", "black", "cyan",
                   "magenta", "yellow", "dark red", "dark green", "dark blue"]
-        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
-                  1.0, 1.0, 1.0, 1.0, 1.0]
+        alphas = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
         for i in xrange(1):
             if len(labels[i]) == 0:
                 self.qtgui_freq_sink.set_line_label(i, "Data {0}".format(i))
@@ -213,7 +231,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         	lambda i: self.set_pilots(self._pilots_options[i]))
         self.top_grid_layout.addWidget(self._pilots_group_box)
         self._noise_type_options = ("Uniform", "Gaussian", "Laplacian", "Impulse", )
-        self._noise_type_labels = (str(self._noise_type_options[0]), str(self._noise_type_options[1]), str(self._noise_type_options[2]), str(self._noise_type_options[3]), )
+        self._noise_type_labels = ("Uniform", "Gaussian", "Laplacian", "Impulse", )
         self._noise_type_tool_bar = Qt.QToolBar(self)
         self._noise_type_tool_bar.addWidget(Qt.QLabel('Noise Type'+": "))
         self._noise_type_combo_box = Qt.QComboBox()
@@ -224,24 +242,23 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._noise_type_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_noise_type(self._noise_type_options[i]))
         self.top_grid_layout.addWidget(self._noise_type_tool_bar)
-        self.noise_source = analog.noise_source_c(analog.GR_GAUSSIAN, 0, 0)
-        self._noise_range = Range(0, 1, 0.01, 0.1, 200)
+        self.noise_source = analog.noise_source_c(analog.GR_GAUSSIAN, noise, 0)
+        self._noise_range = Range(0, 1, 0.01, noise, 200)
         self._noise_win = RangeWidget(self._noise_range, self.set_noise, 'Noise', "counter_slider", float)
         self.top_grid_layout.addWidget(self._noise_win)
         self.file_source = blocks.file_source(gr.sizeof_char*1, '/home/anisan/dvbs2_tx/adv16apsk910.ts', True)
         self.file_source.set_begin_tag(pmt.PMT_NIL)
         self.fft_filter = filter.fft_filter_ccc(1, (firdes.root_raised_cosine(1.0, samp_rate, samp_rate/2, rolloff, taps)), 1)
         self.fft_filter.declare_sample_delay(0)
-        self.dvbs2_physical = dvbs2.physical_cc(dvbs2.FECFRAME_NORMAL, dvbs2.C9_10, dvbs2.MOD_16APSK, dvbs2.PILOTS_OFF, 0)
-        self.dvbs2_modulator = dvbs2.modulator_bc(dvbs2.FECFRAME_NORMAL,
-        dvbs2.C9_10, dvbs2.MOD_16APSK)
-        self.dvbs2_ldpc = dvbs2.ldpc_bb(dvbs2.FECFRAME_NORMAL, dvbs2.C9_10, dvbs2.MOD_OTHER)
-        self.dvbs2_interleaver = dvbs2.interleaver_bb(dvbs2.FECFRAME_NORMAL, dvbs2.C9_10, dvbs2.MOD_16APSK)
-        self.dvbs2_bbscrambler = dvbs2.bbscrambler_bb(dvbs2.FECFRAME_NORMAL, dvbs2.C9_10)
-        self.dvbs2_bbheader = dvbs2.bbheader_bb(dvbs2.FECFRAME_NORMAL, dvbs2.C9_10, dvbs2.RO_0_20)
-        self.dvb_bch = dtv.dvb_bch_bb(dtv.STANDARD_DVBS2, dtv.FECFRAME_NORMAL, dtv.C9_10)
-        self._code_rate_qpsk_options = ["1/4", "1/3", "2/5", "1/2", "3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
-        self._code_rate_qpsk_labels = map(str, self._code_rate_qpsk_options)
+        self.dvbs2_physical = dvbs2.physical_cc(frame_size, code_rate, modulation, pilots, 0)
+        self.dvbs2_modulator = dvbs2.modulator_bc(frame_size, code_rate, modulation)
+        self.dvbs2_ldpc = dvbs2.ldpc_bb(frame_size, code_rate, dvbs2.MOD_OTHER)
+        self.dvbs2_interleaver = dvbs2.interleaver_bb(frame_size, code_rate, modulation)
+        self.dvbs2_bch = dvbs2.bch_bb(frame_size, code_rate)
+        self.dvbs2_bbscrambler = dvbs2.bbscrambler_bb(frame_size, code_rate)
+        self.dvbs2_bbheader = dvbs2.bbheader_bb(frame_size, code_rate, const_rolloff)
+        self._code_rate_qpsk_options = [dvbs2.C1_4, dvbs2.C1_3, dvbs2.C2_5, dvbs2.C1_2, dvbs2.C3_5, dvbs2.C2_3, dvbs2.C3_4, dvbs2.C4_5, dvbs2.C5_6, dvbs2.C8_9, dvbs2.C9_10]
+        self._code_rate_qpsk_labels = ["1/4", "1/3", "2/5", "1/2", "3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_qpsk_group_box = Qt.QGroupBox('Code Rate')
         self._code_rate_qpsk_box = Qt.QHBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
@@ -261,8 +278,8 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_qpsk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_qpsk(self._code_rate_qpsk_options[i]))
         self.constellation_tab_grid_layout_0.addWidget(self._code_rate_qpsk_group_box)
-        self._code_rate_8psk_options = ["3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
-        self._code_rate_8psk_labels = map(str, self._code_rate_8psk_options)
+        self._code_rate_8psk_options = [dvbs2.C3_5, dvbs2.C2_3, dvbs2.C3_4, dvbs2.C4_5, dvbs2.C5_6, dvbs2.C8_9, dvbs2.C9_10]
+        self._code_rate_8psk_labels = ["3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_8psk_group_box = Qt.QGroupBox('Code Rate')
         self._code_rate_8psk_box = Qt.QHBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
@@ -282,8 +299,8 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_8psk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_8psk(self._code_rate_8psk_options[i]))
         self.constellation_tab_grid_layout_1.addWidget(self._code_rate_8psk_group_box)
-        self._code_rate_32apsk_options = ["3/4", "4/5", "5/6", "8/9", "9/10"]
-        self._code_rate_32apsk_labels = map(str, self._code_rate_32apsk_options)
+        self._code_rate_32apsk_options = [dvbs2.C3_4, dvbs2.C4_5, dvbs2.C5_6, dvbs2.C8_9, dvbs2.C9_10]
+        self._code_rate_32apsk_labels = ["3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_32apsk_group_box = Qt.QGroupBox('Code Rate')
         self._code_rate_32apsk_box = Qt.QHBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
@@ -303,8 +320,8 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_32apsk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_32apsk(self._code_rate_32apsk_options[i]))
         self.constellation_tab_grid_layout_3.addWidget(self._code_rate_32apsk_group_box)
-        self._code_rate_16apsk_options = [ "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
-        self._code_rate_16apsk_labels = map(str, self._code_rate_16apsk_options)
+        self._code_rate_16apsk_options = [dvbs2.C2_3, dvbs2.C3_4, dvbs2.C4_5, dvbs2.C5_6, dvbs2.C8_9, dvbs2.C9_10]
+        self._code_rate_16apsk_labels = ["2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_16apsk_group_box = Qt.QGroupBox('Code Rate')
         self._code_rate_16apsk_box = Qt.QHBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
@@ -325,8 +342,8 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         	lambda i: self.set_code_rate_16apsk(self._code_rate_16apsk_options[i]))
         self.constellation_tab_grid_layout_2.addWidget(self._code_rate_16apsk_group_box)
         self.add_bloc = blocks.add_vcc(1)
-        self._FEC_Frame_size_options = ('Normal', 'Short', )
-        self._FEC_Frame_size_labels = (str(self._FEC_Frame_size_options[0]), str(self._FEC_Frame_size_options[1]), )
+        self._FEC_Frame_size_options = (dvbs2.FECFRAME_SHORT, dvbs2.FECFRAME_NORMAL, )
+        self._FEC_Frame_size_labels = ('Normal', 'Short', )
         self._FEC_Frame_size_group_box = Qt.QGroupBox('FEC Frame Size')
         self._FEC_Frame_size_box = Qt.QVBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
@@ -354,9 +371,9 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         ##################################################
         self.connect((self.add_bloc, 0), (self.qtgui_freq_sink, 0))
         self.connect((self.add_bloc, 0), (self.uhd_usrp_sink, 0))
-        self.connect((self.dvb_bch, 0), (self.dvbs2_ldpc, 0))
         self.connect((self.dvbs2_bbheader, 0), (self.dvbs2_bbscrambler, 0))
-        self.connect((self.dvbs2_bbscrambler, 0), (self.dvb_bch, 0))
+        self.connect((self.dvbs2_bbscrambler, 0), (self.dvbs2_bch, 0))
+        self.connect((self.dvbs2_bch, 0), (self.dvbs2_ldpc, 0))
         self.connect((self.dvbs2_interleaver, 0), (self.dvbs2_modulator, 0))
         self.connect((self.dvbs2_ldpc, 0), (self.dvbs2_interleaver, 0))
         self.connect((self.dvbs2_modulator, 0), (self.dvbs2_physical, 0))
@@ -384,7 +401,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.tx_gain = tx_gain
         self.uhd_usrp_sink.set_gain(self.tx_gain, 0)
 
-
     def get_taps(self):
         return self.taps
 
@@ -408,13 +424,14 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.rolloff = rolloff
         self._rolloff_callback(self.rolloff)
         self.fft_filter.set_taps((firdes.root_raised_cosine(1.0, self.samp_rate, self.samp_rate/2, self.rolloff, self.taps)))
-
-    def get_qtgui_variable(self):
-        return self.qtgui_variable
-
-    def set_qtgui_variable(self, qtgui_variable):
-        self.qtgui_variable = qtgui_variable
-        Qt.QMetaObject.invokeMethod(self._qtgui_variable_label, "setText", Qt.Q_ARG("QString", self.qtgui_variable))
+        if (rolloff == 0.2):
+            const_rolloff = dvbs2.RO_0_20
+        elif (rolloff == 0.25):
+            const_rolloff = dvbs2.RO_0_25
+        elif (rolloff == 0.35):
+            const_rolloff = dvbs2.RO_0_35
+        write_config(frame_size, code_rate, modulation, pilots, const_rolloff)
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
     def get_pilots(self):
         return self.pilots
@@ -442,6 +459,10 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
     def set_code_rate_qpsk(self, code_rate_qpsk):
         self.code_rate_qpsk = code_rate_qpsk
         self._code_rate_qpsk_callback(self.code_rate_qpsk)
+        code_rate = code_rate_qpsk
+        modulation = dvbs2.MOD_QPSK
+        write_config(frame_size, code_rate, modulation, pilots, const_rolloff)
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
     def get_code_rate_8psk(self):
         return self.code_rate_8psk
@@ -449,6 +470,10 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
     def set_code_rate_8psk(self, code_rate_8psk):
         self.code_rate_8psk = code_rate_8psk
         self._code_rate_8psk_callback(self.code_rate_8psk)
+        code_rate = code_rate_8psk
+        modulation = dvbs2.MOD_8PSK
+        write_config(frame_size, code_rate, modulation, pilots, const_rolloff)
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
     def get_code_rate_32apsk(self):
         return self.code_rate_32apsk
@@ -456,6 +481,10 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
     def set_code_rate_32apsk(self, code_rate_32apsk):
         self.code_rate_32apsk = code_rate_32apsk
         self._code_rate_32apsk_callback(self.code_rate_32apsk)
+        code_rate = code_rate_32apsk
+        modulation = dvbs2.MOD_32APSK
+        write_config(frame_size, code_rate, modulation, pilots, const_rolloff)
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
     def get_code_rate_16apsk(self):
         return self.code_rate_16apsk
@@ -463,6 +492,10 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
     def set_code_rate_16apsk(self, code_rate_16apsk):
         self.code_rate_16apsk = code_rate_16apsk
         self._code_rate_16apsk_callback(self.code_rate_16apsk)
+        code_rate = code_rate_16apsk
+        modulation = dvbs2.MOD_16APSK
+        write_config(frame_size, code_rate, modulation, pilots, const_rolloff)
+        os.execl(sys.executable, sys.executable, * sys.argv)
 
     def get_center_freq(self):
         return self.center_freq
@@ -479,13 +512,22 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.FEC_Frame_size = FEC_Frame_size
         self._FEC_Frame_size_callback(self.FEC_Frame_size)
 
+def write_config(frame_size, code_rate, modulation, pilots, const_rolloff):
+    f = open(configPath, "w")
+    f.write(str(frame_size) + "\n")
+    f.write(str(code_rate) + "\n")
+    f.write(str(modulation) + "\n")
+    f.write(str(pilots) + "\n")
+    f.write(str(const_rolloff) + "\n")
+    f.close()
 
 def main(top_block_cls=dvbs2_tx, options=None):
-    if gr.enable_realtime_scheduling() != gr.RT_OK:
-        print "Error: failed to enable real-time scheduling."
+    #if gr.enable_realtime_scheduling() != gr.RT_OK:
+    #    print "Error: failed to enable real-time scheduling."
 
     qapp = Qt.QApplication(sys.argv)
 
+    global tb
     tb = top_block_cls()
     tb.start()
     tb.show()
