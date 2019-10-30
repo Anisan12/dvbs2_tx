@@ -5,6 +5,8 @@ sudo apt install gnuradio
 sudo apt-get install doxygen
 sudo apt install graphviz
 sudo apt install swig
+sudo apt install xterm
+sudo apt install ffmpeg
 
 git clone https://github.com/drmpeg/gr-dvbs2
 cd gr-dvbs2/
@@ -15,3 +17,12 @@ make
 sudo make install
 sudo ldconfig
 
+wget http://www.w6rz.net/adv16apsk910.ts
+
+wget https://raw.githubusercontent.com/drmpeg/dtv-utils/master/dvbs2rate.c
+gcc dvbs2rate.c -o dvbs2rate -lm
+./dvbs2rate 5000000
+
+ffmpeg -i test.mp4 -c:v copy -c:a copy -muxrate 17413400 -f mpegts test.ts
+
+17836710
