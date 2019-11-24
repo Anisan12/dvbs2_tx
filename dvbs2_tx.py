@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Dvbs2 Tx
-# Generated: Wed Oct 23 00:36:21 2019
+# Generated: Sat Nov 23 16:26:37 2019
 ##################################################
 
 from distutils.version import StrictVersion
@@ -85,6 +85,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.code_rate_32apsk = code_rate_32apsk = "9/10"
         self.code_rate_16apsk = code_rate_16apsk = "9/10"
         self.center_freq = center_freq = 1280e6
+        self.browse_button = browse_button = 0
         self.FEC_Frame_size = FEC_Frame_size = 'Normal'
 
         ##################################################
@@ -228,7 +229,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._noise_range = Range(0, 1, 0.01, 0.1, 200)
         self._noise_win = RangeWidget(self._noise_range, self.set_noise, 'Noise', "counter_slider", float)
         self.top_grid_layout.addWidget(self._noise_win)
-        self.file_source = blocks.file_source(gr.sizeof_char*1, '/home/anisan/dvbs2_tx/adv16apsk910.ts', True)
+        self.file_source = blocks.file_source(gr.sizeof_char*1, '/home/anisan/The_Maker.ts', True)
         self.file_source.set_begin_tag(pmt.PMT_NIL)
         self.fft_filter = filter.fft_filter_ccc(1, (firdes.root_raised_cosine(1.0, samp_rate, samp_rate/2, rolloff, taps)), 1)
         self.fft_filter.declare_sample_delay(0)
@@ -324,6 +325,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_16apsk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_16apsk(self._code_rate_16apsk_options[i]))
         self.constellation_tab_grid_layout_2.addWidget(self._code_rate_16apsk_group_box)
+        _browse_button_push_button = Qt.QPushButton('Browse')
+        self._browse_button_choices = {'Pressed': 1, 'Released': 0}
+        _browse_button_push_button.pressed.connect(lambda: self.set_browse_button(self._browse_button_choices['Pressed']))
+        _browse_button_push_button.released.connect(lambda: self.set_browse_button(self._browse_button_choices['Released']))
+        self.top_grid_layout.addWidget(_browse_button_push_button)
         self.add_bloc = blocks.add_vcc(1)
         self._FEC_Frame_size_options = ('Normal', 'Short', )
         self._FEC_Frame_size_labels = (str(self._FEC_Frame_size_options[0]), str(self._FEC_Frame_size_options[1]), )
@@ -471,6 +477,12 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.center_freq = center_freq
         self.uhd_usrp_sink.set_center_freq(self.center_freq, 0)
         self.qtgui_freq_sink.set_frequency_range(self.center_freq, self.samp_rate)
+
+    def get_browse_button(self):
+        return self.browse_button
+
+    def set_browse_button(self, browse_button):
+        self.browse_button = browse_button
 
     def get_FEC_Frame_size(self):
         return self.FEC_Frame_size
