@@ -109,7 +109,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[4, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -208,7 +208,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[0, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -678,7 +678,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[2, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -718,7 +718,7 @@
     </param>
     <param>
       <key>widget</key>
-      <value>counter_slider</value>
+      <value>counter</value>
     </param>
   </block>
   <block>
@@ -741,7 +741,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[1, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -840,7 +840,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[3, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -943,7 +943,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[3, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -982,7 +982,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[0, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1162,7 +1162,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[1, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1276,7 +1276,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[2, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1883,7 +1883,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/anisan/The_Maker.ts</value>
+      <value>/home/anisan/videos/The_Maker/900.ts</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -2025,7 +2025,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[4, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
