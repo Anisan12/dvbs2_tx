@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+## ISSY
+###################################################
+ -->
+<block>
+  <name>ISSY</name>
+  <key>dvbs2_issy_bb</key>
+  <category>[DVB]/DVB-S2</category>
+  <import>import dvbs2</import>
+  <make>dvbs2.issy_bb()</make>
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>
