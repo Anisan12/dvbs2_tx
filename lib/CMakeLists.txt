@@ -33,7 +33,7 @@ list(APPEND dvbs2_sources
     modulator_bc_impl.cc
     physical_cc_impl.cc
     interleaver_bb_impl.cc
-    issy_bb_impl.cc
+    mode_adapt_bb_impl.cc
 )
 
 set(dvbs2_sources "${dvbs2_sources}" PARENT_SCOPE)

@@ -1,5 +1,7 @@
 /* -*- c++ -*- */
 /* 
+ * Copyright 2014,2016 Ron Economos.
+ * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
@@ -13,34 +15,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
+ * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_DVBS2_ISSY_BB_IMPL_H
-#define INCLUDED_DVBS2_ISSY_BB_IMPL_H
 
-#include <dvbs2/issy_bb.h>
+#ifndef INCLUDED_DVBS2_MODE_ADAPT_BB_H
+#define INCLUDED_DVBS2_MODE_ADAPT_BB_H
+
+#include <dvbs2/api.h>
+#include <dvbs2/dvbs2_config.h>
+#include <gnuradio/block.h>
 
 namespace gr {
   namespace dvbs2 {
-
-    class issy_bb_impl : public issy_bb 
+    class DVBS2_API mode_adapt_bb : virtual public gr::block
     {
-     private:
-
      public:
-      issy_bb_impl();
-      ~issy_bb_impl();
-
-      void forecast (int noutput_items, gr_vector_int &ninput_items_required);
-
-      int general_work(int noutput_items,
-                       gr_vector_int &ninput_items,
-                       gr_vector_const_void_star &input_items,
-                       gr_vector_void_star &output_items);
+      typedef boost::shared_ptr<mode_adapt_bb> sptr;
+      static sptr make(dvbs2_framesize_t framesize, dvbs2_issyi_t issyiparam);
     };
-
   } // namespace dvbs2
 } // namespace gr
 
-#endif /* INCLUDED_DVBS2_ISSY_BB_IMPL_H */
+#endif
 

@@ -163,6 +163,12 @@ namespace gr {
       FECFRAME_SHORT,
       FECFRAME_MEDIUM,
     };
+    enum dvbs2_issyi_t{
+      ISSYI_COUNTER = 0,
+      ISSYI_BUFFSIZE,
+      ISSYI_BUFFSTAT,
+    };
+
   } // namespace dvbs2
 } // namespace gr
 
@@ -171,6 +177,7 @@ typedef gr::dvbs2::dvbs2_rolloff_factor_t dvbs2_rolloff_factor_t;
 typedef gr::dvbs2::dvbs2_constellation_t dvbs2_constellation_t;
 typedef gr::dvbs2::dvbs2_pilots_t dvbs2_pilots_t;
 typedef gr::dvbs2::dvbs2_framesize_t dvbs2_framesize_t;
+typedef gr::dvbs2::dvbs2_issyi_t dvbs2_issyi_t;
 
 #endif /* INCLUDED_DVBS2_CONFIG_H */
 

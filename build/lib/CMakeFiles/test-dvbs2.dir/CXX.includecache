@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/qa_dvbs2.cc
+qa_dvbs2.h
+/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/qa_dvbs2.h
+
+/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/qa_dvbs2.h
+gnuradio/attributes.h
+-
+cppunit/TestSuite.h
+-
+
+/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/test_dvbs2.cc
+config.h
+/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+cppunit/TextTestRunner.h
+-
+cppunit/XmlOutputter.h
+-
+gnuradio/unittests.h
+-
+qa_dvbs2.h
+/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/qa_dvbs2.h
+iostream
+-
+

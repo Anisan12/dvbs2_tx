@@ -29,5 +29,5 @@ install(FILES
     modulator_bc.h
     physical_cc.h
     interleaver_bb.h 
-    issy_bb.h DESTINATION include/dvbs2
+    mode_adapt_bb.h DESTINATION include/dvbs2
 )

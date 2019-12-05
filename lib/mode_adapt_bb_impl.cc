@@ -23,22 +23,22 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "issy_bb_impl.h"
+#include "mode_adapt_bb_impl.h"
 
 namespace gr {
   namespace dvbs2 {
 
-    issy_bb::sptr
-    issy_bb::make()
+    mode_adapt_bb::sptr
+    mode_adapt_bb::make(dvbs2_framesize_t framesize, dvbs2_issyi_t issyiparam)
     {
       return gnuradio::get_initial_sptr
-        (new issy_bb_impl());
+        (new mode_adapt_bb_impl(framesize, issyiparam));
     }
 
     /*
      * The private constructor
      */
-    issy_bb_impl::issy_bb_impl() : gr::block("issy_bb",
+    mode_adapt_bb_impl::mode_adapt_bb_impl(dvbs2_framesize_t framesize, dvbs2_issyi_t issyiparam) : gr::block("mode_adapt_bb",
               gr::io_signature::make(1, 1, sizeof(unsigned char)),
               gr::io_signature::make(1, 1, sizeof(unsigned char)))
     {
@@ -46,13 +46,13 @@ namespace gr {
     }
 
     void
-    issy_bb_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
+    mode_adapt_bb_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
     {
        ninput_items_required[0] = noutput_items;
     }
 
     int
-    issy_bb_impl::general_work (int noutput_items,
+    mode_adapt_bb_impl::general_work (int noutput_items,
                        gr_vector_int &ninput_items,
                        gr_vector_const_void_star &input_items,
                        gr_vector_void_star &output_items)

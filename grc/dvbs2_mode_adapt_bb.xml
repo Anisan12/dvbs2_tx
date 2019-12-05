@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+## ISSY
+###################################################
+ -->
+<block>
+  <name>Mode Adaptation</name>
+  <key>dvbs2_mode_adapt_bb</key>
+  <category>[DVB]/DVB-S2</category>
+  <import>import dvbs2</import>
+  <make>dvbs2.mode_adapt_bb($framesize.val, $issyiparam.val)</make>
+    <param>
+    <name>FECFRAME size</name>
+    <key>framesize</key>
+    <type>enum</type>
+    <option>
+      <name>Normal</name>
+      <key>FECFRAME_NORMAL</key>
+      <opt>val:dvbs2.FECFRAME_NORMAL</opt>
+    </option>
+    <option>
+      <name>Medium</name>
+      <key>FECFRAME_MEDIUM</key>
+      <opt>val:dvbs2.FECFRAME_MEDIUM</opt>
+    </option>
+    <option>
+      <name>Short</name>
+      <key>FECFRAME_SHORT</key>
+      <opt>val:dvbs2.FECFRAME_SHORT</opt>
+    </option>
+  </param>
+  <param>
+    <name>Input Stream Synchronizer Mode</name>
+    <key>issyiparam</key>
+    <type>enum</type>
+    <option>
+      <name>Counter</name>
+      <key>ISSYI_COUNTER</key>
+      <opt>val:dvbs2.ISSYI_COUNTER</opt>
+    </option>
+    <option>
+      <name>Buffer Size</name>
+      <key>ISSYI_BUFFSIZE</key>
+      <opt>val:dvbs2.ISSYI_BUFFSIZE</opt>
+    </option>
+    <option>
+      <name>Buffer Status</name>
+      <key>ISSYI_BUFFSTAT</key>
+      <opt>val:dvbs2.ISSYI_BUFFSTAT</opt>
+    </option>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>

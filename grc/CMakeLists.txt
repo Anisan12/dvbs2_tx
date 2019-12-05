@@ -19,7 +19,7 @@
 
 install(FILES
     dvbs2_bbheader_bb.xml 
-    dvbs2_issy_bb.xml    
+    dvbs2_mode_adapt_bb.xml    
     dvbs2_bbscrambler_bb.xml
     dvbs2_bch_bb.xml
     dvbs2_ldpc_bb.xml

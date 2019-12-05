@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Dvbs2 Tx
-# Generated: Fri Nov 29 15:49:33 2019
+# Generated: Thu Dec  5 16:36:34 2019
 ##################################################
 
 from distutils.version import StrictVersion
@@ -28,7 +28,6 @@ from gnuradio import eng_notation
 from gnuradio import filter
 from gnuradio import gr
 from gnuradio import qtgui
-from gnuradio import uhd
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from gnuradio.qtgui import Range, RangeWidget
@@ -36,7 +35,6 @@ from optparse import OptionParser
 import dvbs2
 import sip
 import sys
-import time
 from gnuradio import qtgui
 
 
@@ -92,9 +90,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         ##################################################
         # Blocks
         ##################################################
-        self._tx_gain_range = Range(0, 89, 1, 0, 200)
-        self._tx_gain_win = RangeWidget(self._tx_gain_range, self.set_tx_gain, 'TX Gain (dB)', "counter_slider", float)
-        self.top_layout.addWidget(self._tx_gain_win)
         self._rolloff_options = (0.2, 0.25, 0.35, )
         self._rolloff_labels = (str(self._rolloff_options[0]), str(self._rolloff_options[1]), str(self._rolloff_options[2]), )
         self._rolloff_tool_bar = Qt.QToolBar(self)
@@ -129,16 +124,9 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.constellation_tab_layout_3.addLayout(self.constellation_tab_grid_layout_3)
         self.constellation_tab.addTab(self.constellation_tab_widget_3, '32APSK')
         self.top_layout.addWidget(self.constellation_tab)
-        self.uhd_usrp_sink = uhd.usrp_sink(
-        	",".join(('', '')),
-        	uhd.stream_args(
-        		cpu_format="fc32",
-        		channels=range(1),
-        	),
-        )
-        self.uhd_usrp_sink.set_samp_rate(samp_rate)
-        self.uhd_usrp_sink.set_center_freq(center_freq, 0)
-        self.uhd_usrp_sink.set_gain(tx_gain, 0)
+        self._tx_gain_range = Range(0, 89, 1, 0, 200)
+        self._tx_gain_win = RangeWidget(self._tx_gain_range, self.set_tx_gain, 'TX Gain (dB)', "counter_slider", float)
+        self.top_layout.addWidget(self._tx_gain_win)
         self._qtgui_variable_tool_bar = Qt.QToolBar(self)
 
         if None:
@@ -352,7 +340,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         # Connections
         ##################################################
         self.connect((self.add_bloc, 0), (self.qtgui_freq_sink, 0))
-        self.connect((self.add_bloc, 0), (self.uhd_usrp_sink, 0))
         self.connect((self.dvb_bch, 0), (self.dvbs2_ldpc, 0))
         self.connect((self.dvbs2_bbheader, 0), (self.dvbs2_bbscrambler, 0))
         self.connect((self.dvbs2_bbscrambler, 0), (self.dvb_bch, 0))
@@ -381,8 +368,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
 
     def set_tx_gain(self, tx_gain):
         self.tx_gain = tx_gain
-        self.uhd_usrp_sink.set_gain(self.tx_gain, 0)
-
 
     def get_taps(self):
         return self.taps
@@ -396,7 +381,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.uhd_usrp_sink.set_samp_rate(self.samp_rate)
         self.qtgui_freq_sink.set_frequency_range(self.center_freq, self.samp_rate)
         self.fft_filter.set_taps((firdes.root_raised_cosine(1.0, self.samp_rate, self.samp_rate/2, self.rolloff, self.taps)))
 
@@ -468,7 +452,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
 
     def set_center_freq(self, center_freq):
         self.center_freq = center_freq
-        self.uhd_usrp_sink.set_center_freq(self.center_freq, 0)
         self.qtgui_freq_sink.set_frequency_range(self.center_freq, self.samp_rate)
 
     def get_FEC_Frame_size(self):

@@ -136,11 +136,10 @@ add_custom_target(uninstall
 ########################################################################
 add_subdirectory(include/dvbs2)
 add_subdirectory(lib)
-#add_subdirectory(swig)
-#add_subdirectory(python)
 add_subdirectory(grc)
-#add_subdirectory(apps)
-#add_subdirectory(docs)
+add_subdirectory(swig)
+add_subdirectory(pythonMod)
+add_subdirectory(apps)
 
 ########################################################################
 # Install cmake search helper for this library
