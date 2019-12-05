@@ -27,9 +27,19 @@ namespace gr {
     {
      private:
 
+     unsigned int frame_size;
+     unsigned int counter;
+     unsigned int kbch;
+
+     char issy_bb_impl::check_if_issy_on(char* frame);
+
+    }
+
      public:
+
       mode_adapt_bb_impl(dvbs2_framesize_t framesize, dvbs2_issyi_t issyparam);
       ~mode_adapt_bb_impl();
+
 
       void forecast (int noutput_items, gr_vector_int &ninput_items_required);
 
