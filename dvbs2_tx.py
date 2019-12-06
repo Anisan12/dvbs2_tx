@@ -85,11 +85,19 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.code_rate_32apsk = code_rate_32apsk = "9/10"
         self.code_rate_16apsk = code_rate_16apsk = "9/10"
         self.center_freq = center_freq = 1280e6
+        self.browse_button = browse_button = 0
         self.FEC_Frame_size = FEC_Frame_size = 'Normal'
 
         ##################################################
         # Blocks
         ##################################################
+        self._tx_gain_range = Range(0, 89, 1, 0, 200)
+        self._tx_gain_win = RangeWidget(self._tx_gain_range, self.set_tx_gain, 'TX Gain (dB)', "counter_slider", float)
+        self.top_grid_layout.addWidget(self._tx_gain_win, 1, 0, 1, 1)
+        for r in range(1, 2):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(0, 1):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self._rolloff_options = (0.2, 0.25, 0.35, )
         self._rolloff_labels = (str(self._rolloff_options[0]), str(self._rolloff_options[1]), str(self._rolloff_options[2]), )
         self._rolloff_tool_bar = Qt.QToolBar(self)
@@ -101,7 +109,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._rolloff_callback(self.rolloff)
         self._rolloff_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_rolloff(self._rolloff_options[i]))
-        self.top_layout.addWidget(self._rolloff_tool_bar)
+        self.top_grid_layout.addWidget(self._rolloff_tool_bar, 0, 1, 1, 1)
+        for r in range(0, 1):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(1, 2):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self.constellation_tab = Qt.QTabWidget()
         self.constellation_tab_widget_0 = Qt.QWidget()
         self.constellation_tab_layout_0 = Qt.QBoxLayout(Qt.QBoxLayout.TopToBottom, self.constellation_tab_widget_0)
@@ -123,10 +135,21 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.constellation_tab_grid_layout_3 = Qt.QGridLayout()
         self.constellation_tab_layout_3.addLayout(self.constellation_tab_grid_layout_3)
         self.constellation_tab.addTab(self.constellation_tab_widget_3, '32APSK')
-        self.top_layout.addWidget(self.constellation_tab)
-        self._tx_gain_range = Range(0, 89, 1, 0, 200)
-        self._tx_gain_win = RangeWidget(self._tx_gain_range, self.set_tx_gain, 'TX Gain (dB)', "counter_slider", float)
-        self.top_layout.addWidget(self._tx_gain_win)
+        self.top_grid_layout.addWidget(self.constellation_tab, 2, 0, 1, 1)
+        for r in range(2, 3):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(0, 1):
+            self.top_grid_layout.setColumnStretch(c, 1)
+        self.uhd_usrp_sink = uhd.usrp_sink(
+        	",".join(('', '')),
+        	uhd.stream_args(
+        		cpu_format="fc32",
+        		channels=range(1),
+        	),
+        )
+        self.uhd_usrp_sink.set_samp_rate(samp_rate)
+        self.uhd_usrp_sink.set_center_freq(center_freq, 0)
+        self.uhd_usrp_sink.set_gain(tx_gain, 0)
         self._qtgui_variable_tool_bar = Qt.QToolBar(self)
 
         if None:
@@ -137,7 +160,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._qtgui_variable_tool_bar.addWidget(Qt.QLabel('label'+": "))
         self._qtgui_variable_label = Qt.QLabel(str(self._qtgui_variable_formatter(self.qtgui_variable)))
         self._qtgui_variable_tool_bar.addWidget(self._qtgui_variable_label)
-        self.top_layout.addWidget(self._qtgui_variable_tool_bar)
+        self.top_grid_layout.addWidget(self._qtgui_variable_tool_bar, 3, 0, 1, 1)
+        for r in range(3, 4):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(0, 1):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self.qtgui_freq_sink = qtgui.freq_sink_c(
         	1024, #size
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
@@ -180,7 +207,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
             self.qtgui_freq_sink.set_line_alpha(i, alphas[i])
 
         self._qtgui_freq_sink_win = sip.wrapinstance(self.qtgui_freq_sink.pyqwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_freq_sink_win)
+        self.top_grid_layout.addWidget(self._qtgui_freq_sink_win, 4, 0, 1, 1)
+        for r in range(4, 5):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(0, 1):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self._pilots_options = (1, 0, )
         self._pilots_labels = ("On", "Off", )
         self._pilots_group_box = Qt.QGroupBox('Pilots')
@@ -201,7 +232,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._pilots_callback(self.pilots)
         self._pilots_button_group.buttonClicked[int].connect(
         	lambda i: self.set_pilots(self._pilots_options[i]))
-        self.top_layout.addWidget(self._pilots_group_box)
+        self.top_grid_layout.addWidget(self._pilots_group_box, 3, 1, 1, 1)
+        for r in range(3, 4):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(1, 2):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self._noise_type_options = ("Uniform", "Gaussian", "Laplacian", "Impulse", )
         self._noise_type_labels = (str(self._noise_type_options[0]), str(self._noise_type_options[1]), str(self._noise_type_options[2]), str(self._noise_type_options[3]), )
         self._noise_type_tool_bar = Qt.QToolBar(self)
@@ -213,12 +248,21 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._noise_type_callback(self.noise_type)
         self._noise_type_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_noise_type(self._noise_type_options[i]))
-        self.top_layout.addWidget(self._noise_type_tool_bar)
+        self.top_grid_layout.addWidget(self._noise_type_tool_bar, 1, 1, 1, 1)
+        for r in range(1, 2):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(1, 2):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self.noise_source = analog.noise_source_c(analog.GR_GAUSSIAN, 0, 0)
         self._noise_range = Range(0, 1, 0.01, 0.1, 200)
-        self._noise_win = RangeWidget(self._noise_range, self.set_noise, 'Noise', "counter_slider", float)
-        self.top_layout.addWidget(self._noise_win)
-        self.file_source = blocks.file_source(gr.sizeof_char*1, '/home/louis-normand/Documents/dvb-s2/vids/The_Maker.ts', True)
+        self._noise_win = RangeWidget(self._noise_range, self.set_noise, 'Noise', "counter", float)
+        self.top_grid_layout.addWidget(self._noise_win, 2, 1, 1, 1)
+        for r in range(2, 3):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(1, 2):
+            self.top_grid_layout.setColumnStretch(c, 1)
+        self.file_source = blocks.file_source(gr.sizeof_char*1, '/home/anisan/videos/The_Maker/900.ts', True)
+        self.file_source.set_begin_tag(pmt.PMT_NIL)
         self.fft_filter = filter.fft_filter_ccc(1, (firdes.root_raised_cosine(1.0, samp_rate, samp_rate/2, rolloff, taps)), 1)
         self.fft_filter.declare_sample_delay(0)
         self.dvbs2_physical = dvbs2.physical_cc(dvbs2.FECFRAME_NORMAL, dvbs2.C9_10, dvbs2.MOD_16APSK, dvbs2.PILOTS_OFF, 0)
@@ -312,7 +356,16 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_16apsk_callback(self.code_rate_16apsk)
         self._code_rate_16apsk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_16apsk(self._code_rate_16apsk_options[i]))
-        self.constellation_tab_layout_2.addWidget(self._code_rate_16apsk_group_box)
+        self.constellation_tab_grid_layout_2.addWidget(self._code_rate_16apsk_group_box)
+        _browse_button_push_button = Qt.QPushButton('Browse')
+        self._browse_button_choices = {'Pressed': 1, 'Released': 0}
+        _browse_button_push_button.pressed.connect(lambda: self.set_browse_button(self._browse_button_choices['Pressed']))
+        _browse_button_push_button.released.connect(lambda: self.set_browse_button(self._browse_button_choices['Released']))
+        self.top_grid_layout.addWidget(_browse_button_push_button, 0, 0, 1, 1)
+        for r in range(0, 1):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(0, 1):
+            self.top_grid_layout.setColumnStretch(c, 1)
         self.add_bloc = blocks.add_vcc(1)
         self._FEC_Frame_size_options = ('Normal', 'Short', )
         self._FEC_Frame_size_labels = (str(self._FEC_Frame_size_options[0]), str(self._FEC_Frame_size_options[1]), )
@@ -334,7 +387,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._FEC_Frame_size_callback(self.FEC_Frame_size)
         self._FEC_Frame_size_button_group.buttonClicked[int].connect(
         	lambda i: self.set_FEC_Frame_size(self._FEC_Frame_size_options[i]))
-        self.top_layout.addWidget(self._FEC_Frame_size_group_box)
+        self.top_grid_layout.addWidget(self._FEC_Frame_size_group_box, 4, 1, 1, 1)
+        for r in range(4, 5):
+            self.top_grid_layout.setRowStretch(r, 1)
+        for c in range(1, 2):
+            self.top_grid_layout.setColumnStretch(c, 1)
 
         ##################################################
         # Connections
@@ -453,6 +510,12 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
     def set_center_freq(self, center_freq):
         self.center_freq = center_freq
         self.qtgui_freq_sink.set_frequency_range(self.center_freq, self.samp_rate)
+
+    def get_browse_button(self):
+        return self.browse_button
+
+    def set_browse_button(self, browse_button):
+        self.browse_button = browse_button
 
     def get_FEC_Frame_size(self):
         return self.FEC_Frame_size

@@ -101,7 +101,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[4, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -178,6 +178,53 @@
     <param>
       <key>widget</key>
       <value>radio_buttons</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_push_button</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(944, 444)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value>[0, 0, 1, 1]</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>browse_button</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Browse</value>
+    </param>
+    <param>
+      <key>pressed</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>released</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>int</value>
     </param>
   </block>
   <block>
@@ -623,7 +670,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[2, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -663,7 +710,7 @@
     </param>
     <param>
       <key>widget</key>
-      <value>counter_slider</value>
+      <value>counter</value>
     </param>
   </block>
   <block>
@@ -686,7 +733,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[1, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -785,7 +832,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[3, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -888,7 +935,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[3, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -927,7 +974,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[0, 1, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1107,7 +1154,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[1, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1221,7 +1268,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[2, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1824,7 +1871,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/louis-normand/Documents/dvb-s2/vids/The_Maker.ts</value>
+      <value>/home/anisan/videos/The_Maker/900.ts</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -1966,7 +2013,7 @@
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>[4, 0, 1, 1]</value>
     </param>
     <param>
       <key>_rotation</key>

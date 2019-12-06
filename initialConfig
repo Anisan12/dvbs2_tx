@@ -25,4 +25,4 @@ gcc dvbs2rate.c -o dvbs2rate -lm
 
 ffmpeg -i test.mp4 -c:v copy -c:a copy -muxrate 17413400 -f mpegts test.ts
 
-17836710
+17413400

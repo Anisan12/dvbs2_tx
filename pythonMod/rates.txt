@@ -1,0 +1,65 @@
+DVB-S2 normal FECFRAME
+QPSK, pilots off
+coderate = 1/4,  BCH rate = 12, ts rate = 2451215.758695
+coderate = 1/3,  BCH rate = 12, ts rate = 3282240.689443
+coderate = 2/5,  BCH rate = 12, ts rate = 3947060.634041
+coderate = 1/2,  BCH rate = 12, ts rate = 4944290.550939
+coderate = 3/5,  BCH rate = 12, ts rate = 5941520.467836
+coderate = 2/3,  BCH rate = 10, ts rate = 6611265.004617
+coderate = 3/4,  BCH rate = 12, ts rate = 7437365.343183
+coderate = 4/5,  BCH rate = 12, ts rate = 7935980.301631
+coderate = 5/6,  BCH rate = 10, ts rate = 8273314.866113
+coderate = 8/9,  BCH rate =  8, ts rate = 8832256.078793
+coderate = 9/10, BCH rate =  8, ts rate = 8943059.402893
+QPSK, pilots on
+coderate = 1/4,  BCH rate = 12, ts rate = 2392885.042966
+coderate = 1/3,  BCH rate = 12, ts rate = 3204134.366925
+coderate = 2/5,  BCH rate = 12, ts rate = 3853133.826092
+coderate = 1/2,  BCH rate = 12, ts rate = 4826633.014843
+coderate = 3/5,  BCH rate = 12, ts rate = 5800132.203594
+coderate = 2/3,  BCH rate = 10, ts rate = 6453939.066162
+coderate = 3/4,  BCH rate = 12, ts rate = 7260380.986720
+coderate = 4/5,  BCH rate = 12, ts rate = 7747130.581095
+coderate = 5/6,  BCH rate = 10, ts rate = 8076437.714080
+coderate = 8/9,  BCH rate =  8, ts rate = 8622078.000120
+coderate = 9/10, BCH rate =  8, ts rate = 8730244.576648
+8PSK, pilots off
+coderate = 3/5,  BCH rate = 12, ts rate = 8899953.895805
+coderate = 2/3,  BCH rate = 10, ts rate = 9903181.189488
+coderate = 3/4,  BCH rate = 12, ts rate = 11140617.796219
+coderate = 5/6,  BCH rate = 10, ts rate = 12392807.745505
+coderate = 8/9,  BCH rate =  8, ts rate = 13230059.935454
+coderate = 9/10, BCH rate =  8, ts rate = 13396035.039189
+8PSK, pilots on
+coderate = 3/5,  BCH rate = 12, ts rate = 8697846.264756
+coderate = 2/3,  BCH rate = 10, ts rate = 9678291.430116
+coderate = 3/4,  BCH rate = 12, ts rate = 10887627.286654
+coderate = 5/6,  BCH rate = 10, ts rate = 12111381.454447
+coderate = 8/9,  BCH rate =  8, ts rate = 12929620.618185
+coderate = 9/10, BCH rate =  8, ts rate = 13091826.619807
+16APSK, pilots off
+coderate = 2/3,  BCH rate = 10, ts rate = 13186003.683241
+coderate = 3/4,  BCH rate = 12, ts rate = 14833640.270104
+coderate = 4/5,  BCH rate = 12, ts rate = 15828115.408226
+coderate = 5/6,  BCH rate = 10, ts rate = 16500920.810313
+coderate = 8/9,  BCH rate =  8, ts rate = 17615715.162676
+coderate = 9/10, BCH rate =  8, ts rate = 17836709.637815
+16APSK, pilots on
+coderate = 2/3,  BCH rate = 10, ts rate = 12873067.241999
+coderate = 3/4,  BCH rate = 12, ts rate = 14481601.342443
+coderate = 4/5,  BCH rate = 12, ts rate = 15452475.128851
+coderate = 5/6,  BCH rate = 10, ts rate = 16109313.196692
+coderate = 8/9,  BCH rate =  8, ts rate = 17197650.725159
+coderate = 9/10, BCH rate =  8, ts rate = 17413400.455472
+32APSK, pilots off
+coderate = 3/4,  BCH rate = 12, ts rate = 18516475.095785
+coderate = 4/5,  BCH rate = 12, ts rate = 19757854.406130
+coderate = 5/6,  BCH rate = 10, ts rate = 20597701.149425
+coderate = 8/9,  BCH rate =  8, ts rate = 21989272.030651
+coderate = 9/10, BCH rate =  8, ts rate = 22265134.099617
+32APSK, pilots on
+coderate = 3/4,  BCH rate = 12, ts rate = 18116659.169291
+coderate = 4/5,  BCH rate = 12, ts rate = 19331234.068076
+coderate = 5/6,  BCH rate = 10, ts rate = 20152946.468736
+coderate = 8/9,  BCH rate =  8, ts rate = 21514469.935523
+coderate = 9/10, BCH rate =  8, ts rate = 21784375.468586
