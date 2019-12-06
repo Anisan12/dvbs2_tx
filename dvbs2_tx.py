@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Dvbs2 Tx
-# Generated: Mon Dec  2 19:23:59 2019
+# Generated: Thu Dec  5 16:36:34 2019
 ##################################################
 
 from distutils.version import StrictVersion
@@ -28,16 +28,13 @@ from gnuradio import eng_notation
 from gnuradio import filter
 from gnuradio import gr
 from gnuradio import qtgui
-from gnuradio import uhd
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
 import dvbs2
-import pmt
 import sip
 import sys
-import time
 from gnuradio import qtgui
 
 
@@ -65,8 +62,11 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.top_layout.addLayout(self.top_grid_layout)
 
         self.settings = Qt.QSettings("GNU Radio", "dvbs2_tx")
-        self.restoreGeometry(self.settings.value("geometry", type=QtCore.QByteArray))
 
+        if StrictVersion(Qt.qVersion()) < StrictVersion("5.0.0"):
+            self.restoreGeometry(self.settings.value("geometry").toByteArray())
+        else:
+            self.restoreGeometry(self.settings.value("geometry", type=QtCore.QByteArray))
 
         ##################################################
         # Variables
@@ -293,7 +293,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_qpsk_callback(self.code_rate_qpsk)
         self._code_rate_qpsk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_qpsk(self._code_rate_qpsk_options[i]))
-        self.constellation_tab_grid_layout_0.addWidget(self._code_rate_qpsk_group_box)
+        self.constellation_tab_layout_0.addWidget(self._code_rate_qpsk_group_box)
         self._code_rate_8psk_options = ["3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_8psk_labels = map(str, self._code_rate_8psk_options)
         self._code_rate_8psk_group_box = Qt.QGroupBox('Code Rate')
@@ -314,7 +314,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_8psk_callback(self.code_rate_8psk)
         self._code_rate_8psk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_8psk(self._code_rate_8psk_options[i]))
-        self.constellation_tab_grid_layout_1.addWidget(self._code_rate_8psk_group_box)
+        self.constellation_tab_layout_1.addWidget(self._code_rate_8psk_group_box)
         self._code_rate_32apsk_options = ["3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_32apsk_labels = map(str, self._code_rate_32apsk_options)
         self._code_rate_32apsk_group_box = Qt.QGroupBox('Code Rate')
@@ -335,7 +335,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self._code_rate_32apsk_callback(self.code_rate_32apsk)
         self._code_rate_32apsk_button_group.buttonClicked[int].connect(
         	lambda i: self.set_code_rate_32apsk(self._code_rate_32apsk_options[i]))
-        self.constellation_tab_grid_layout_3.addWidget(self._code_rate_32apsk_group_box)
+        self.constellation_tab_layout_3.addWidget(self._code_rate_32apsk_group_box)
         self._code_rate_16apsk_options = [ "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_16apsk_labels = map(str, self._code_rate_16apsk_options)
         self._code_rate_16apsk_group_box = Qt.QGroupBox('Code Rate')
@@ -393,13 +393,10 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         for c in range(1, 2):
             self.top_grid_layout.setColumnStretch(c, 1)
 
-
-
         ##################################################
         # Connections
         ##################################################
         self.connect((self.add_bloc, 0), (self.qtgui_freq_sink, 0))
-        self.connect((self.add_bloc, 0), (self.uhd_usrp_sink, 0))
         self.connect((self.dvb_bch, 0), (self.dvbs2_ldpc, 0))
         self.connect((self.dvbs2_bbheader, 0), (self.dvbs2_bbscrambler, 0))
         self.connect((self.dvbs2_bbscrambler, 0), (self.dvb_bch, 0))
@@ -428,8 +425,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
 
     def set_tx_gain(self, tx_gain):
         self.tx_gain = tx_gain
-        self.uhd_usrp_sink.set_gain(self.tx_gain, 0)
-
 
     def get_taps(self):
         return self.taps
@@ -443,7 +438,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.uhd_usrp_sink.set_samp_rate(self.samp_rate)
         self.qtgui_freq_sink.set_frequency_range(self.center_freq, self.samp_rate)
         self.fft_filter.set_taps((firdes.root_raised_cosine(1.0, self.samp_rate, self.samp_rate/2, self.rolloff, self.taps)))
 
@@ -515,7 +509,6 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
 
     def set_center_freq(self, center_freq):
         self.center_freq = center_freq
-        self.uhd_usrp_sink.set_center_freq(self.center_freq, 0)
         self.qtgui_freq_sink.set_frequency_range(self.center_freq, self.samp_rate)
 
     def get_browse_button(self):
@@ -536,6 +529,9 @@ def main(top_block_cls=dvbs2_tx, options=None):
     if gr.enable_realtime_scheduling() != gr.RT_OK:
         print "Error: failed to enable real-time scheduling."
 
+    if StrictVersion("4.5.0") <= StrictVersion(Qt.qVersion()) < StrictVersion("5.0.0"):
+        style = gr.prefs().get_string('qtgui', 'style', 'raster')
+        Qt.QApplication.setGraphicsSystem(style)
     qapp = Qt.QApplication(sys.argv)
 
     tb = top_block_cls()
