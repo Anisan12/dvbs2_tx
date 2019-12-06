@@ -29,16 +29,16 @@ namespace gr {
   namespace dvbs2 {
 
     mode_adapt_bb::sptr
-    mode_adapt_bb::make(dvbs2_framesize_t framesize, dvbs2_issyi_t issyiparam)
+    mode_adapt_bb::make(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_issyi_t issyiparam)
     {
       return gnuradio::get_initial_sptr
-        (new mode_adapt_bb_impl(framesize, issyiparam));
+        (new mode_adapt_bb_impl(framesize, rate, issyiparam));
     }
 
     /*
      * The private constructor
      */
-    mode_adapt_bb_impl::mode_adapt_bb_impl(dvbs2_framesize_t framesize, dvbs2_issyi_t issyiparam) : gr::block("mode_adapt_bb",
+    mode_adapt_bb_impl::mode_adapt_bb_impl(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_issyi_t issyiparam) : gr::block("mode_adapt_bb",
               gr::io_signature::make(1, 1, sizeof(unsigned char)),
               gr::io_signature::make(1, 1, sizeof(unsigned char)))
     {
@@ -250,11 +250,12 @@ namespace gr {
     void
     mode_adapt_bb_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
     {
+      
        ninput_items_required[0] = noutput_items;
     }
 
     char
-    issy_bb_impl::check_if_issy_on(char* frame){
+    mode_adapt_bb_impl::check_if_issy_on(const unsigned char* frame){
         return frame[4];
     }
 
@@ -267,15 +268,17 @@ namespace gr {
     {
       const unsigned char *in = (const unsigned char *) input_items[0];
       unsigned char *out = (unsigned char *) output_items[0];
-      unsigned char c_out = (unsigned char) *output_items;
 
       //10 bit of headers
       unsigned int offset = 0;
-      unsigned char b;
-      unsigned int dfl = kbch - 80;
 
-      if (!check_if_issy_on(&c_cout){
-        out[i] = in[i];
+      for(int i = 0; i < kbch/8; i++)
+      {
+         out[i] = in[i];
+      }
+  
+      if (!check_if_issy_on(in)){
+        //out[i] = in[i];
         return 0;
       }
       //for all the frame
@@ -287,20 +290,20 @@ namespace gr {
           //for all the packets within the frame
 
           counter  = (counter + 1) % 4194304;
-          bc_cout[offset++] = *in++;
+          out[offset++] = *in++;
 
           for (int n = 23; n >= 0; n--) {
             //put the msb to 1
             if (n==23){
-              c_cout[offset++] = counter | (1 << n);
+              out[offset++] = counter | (1 << n);
               
             }
             //put the 6th bit to 0
             else if (n==22){
-              c_cout[offset++] = counter & (1 << n);
+              out[offset++] = counter & (1 << n);
             }
             else{
-              c_cout[offset++] = counter & (1 << n) ? 1 : 0;
+              out[offset++] = counter & (1 << n) ? 1 : 0;
             }
           }
 
@@ -311,23 +314,23 @@ namespace gr {
 
           counter  = (counter + 1) % 32768;
 
-          bc_cout[offset++] = *in++;
+          out[offset++] = *in++;
   
           //the rest is encoded over 21 last bits
           for (int n = 14; n >= 0; n--) {
             //put the msb to 1
             if (n==14){
-              c_cout[offset++] = counter & (1 << n);
+              out[offset++] = counter & (1 << n);
               //put the 6th bit to 0
             }
             else{
-              c_cout[offset++] = counter & (1 << n) ? 1 : 0;
+              out[offset++] = counter & (1 << n) ? 1 : 0;
             }
           }
         }
-        out[i] = in[i];
-      }
 
+      }
+      //out = in;
       // Tell runtime system how many output items we produced.
       return noutput_items;
     }

@@ -207,71 +207,6 @@ gnuradio-dvbs2/fast:
 .PHONY : gnuradio-dvbs2/fast
 
 #=============================================================================
-# Target rules for targets named _dvbs2_swig_swig_tag
-
-# Build rule for target.
-_dvbs2_swig_swig_tag: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _dvbs2_swig_swig_tag
-.PHONY : _dvbs2_swig_swig_tag
-
-# fast build rule for target.
-_dvbs2_swig_swig_tag/fast:
-	$(MAKE) -f swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build.make swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build
-.PHONY : _dvbs2_swig_swig_tag/fast
-
-#=============================================================================
-# Target rules for targets named dvbs2_swig_swig_doc
-
-# Build rule for target.
-dvbs2_swig_swig_doc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dvbs2_swig_swig_doc
-.PHONY : dvbs2_swig_swig_doc
-
-# fast build rule for target.
-dvbs2_swig_swig_doc/fast:
-	$(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_doc.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_doc.dir/build
-.PHONY : dvbs2_swig_swig_doc/fast
-
-#=============================================================================
-# Target rules for targets named dvbs2_swig_swig_2d0df
-
-# Build rule for target.
-dvbs2_swig_swig_2d0df: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dvbs2_swig_swig_2d0df
-.PHONY : dvbs2_swig_swig_2d0df
-
-# fast build rule for target.
-dvbs2_swig_swig_2d0df/fast:
-	$(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build
-.PHONY : dvbs2_swig_swig_2d0df/fast
-
-#=============================================================================
-# Target rules for targets named _dvbs2_swig
-
-# Build rule for target.
-_dvbs2_swig: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _dvbs2_swig
-.PHONY : _dvbs2_swig
-
-# fast build rule for target.
-_dvbs2_swig/fast:
-	$(MAKE) -f swig/CMakeFiles/_dvbs2_swig.dir/build.make swig/CMakeFiles/_dvbs2_swig.dir/build
-.PHONY : _dvbs2_swig/fast
-
-#=============================================================================
-# Target rules for targets named pygen_swig_47ca1
-
-# Build rule for target.
-pygen_swig_47ca1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pygen_swig_47ca1
-.PHONY : pygen_swig_47ca1
-
-# fast build rule for target.
-pygen_swig_47ca1/fast:
-	$(MAKE) -f swig/CMakeFiles/pygen_swig_47ca1.dir/build.make swig/CMakeFiles/pygen_swig_47ca1.dir/build
-.PHONY : pygen_swig_47ca1/fast
-
-#=============================================================================
 # Target rules for targets named pygen_apps_9a6dd
 
 # Build rule for target.
@@ -300,11 +235,6 @@ help:
 	@echo "... install"
 	@echo "... test-dvbs2"
 	@echo "... gnuradio-dvbs2"
-	@echo "... _dvbs2_swig_swig_tag"
-	@echo "... dvbs2_swig_swig_doc"
-	@echo "... dvbs2_swig_swig_2d0df"
-	@echo "... _dvbs2_swig"
-	@echo "... pygen_swig_47ca1"
 	@echo "... pygen_apps_9a6dd"
 .PHONY : help
 

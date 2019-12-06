@@ -32,7 +32,7 @@ namespace gr {
     {
      public:
       typedef boost::shared_ptr<mode_adapt_bb> sptr;
-      static sptr make(dvbs2_framesize_t framesize, dvbs2_issyi_t issyiparam);
+      static sptr make(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_issyi_t issyiparam);
     };
   } // namespace dvbs2
 } // namespace gr

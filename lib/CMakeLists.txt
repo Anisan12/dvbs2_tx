@@ -26,6 +26,7 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND dvbs2_sources
+    mode_adapt_bb_impl.cc
     bbheader_bb_impl.cc
     bbscrambler_bb_impl.cc
     bch_bb_impl.cc
@@ -33,7 +34,6 @@ list(APPEND dvbs2_sources
     modulator_bc_impl.cc
     physical_cc_impl.cc
     interleaver_bb_impl.cc
-    mode_adapt_bb_impl.cc
 )
 
 set(dvbs2_sources "${dvbs2_sources}" PARENT_SCOPE)

@@ -17,9 +17,3 @@
 /usr/local/share/gnuradio/grc/blocks/dvbs2_modulator_bc.xml
 /usr/local/share/gnuradio/grc/blocks/dvbs2_physical_cc.xml
 /usr/local/share/gnuradio/grc/blocks/dvbs2_interleaver_bb.xml
-/usr/local/lib/python2.7/dist-packages/dvbs2/_dvbs2_swig.so
-/usr/local/lib/python2.7/dist-packages/dvbs2/dvbs2_swig.py
-/usr/local/lib/python2.7/dist-packages/dvbs2/dvbs2_swig.pyc
-/usr/local/lib/python2.7/dist-packages/dvbs2/dvbs2_swig.pyo
-/usr/local/include/dvbs2/dvbs2/swig/dvbs2_swig.i
-/usr/local/include/dvbs2/dvbs2/swig/dvbs2_swig_doc.i

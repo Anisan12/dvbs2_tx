@@ -31,13 +31,11 @@ namespace gr {
      unsigned int counter;
      unsigned int kbch;
 
-     char issy_bb_impl::check_if_issy_on(char* frame);
-
-    }
+     char check_if_issy_on(const unsigned char* frame);
 
      public:
 
-      mode_adapt_bb_impl(dvbs2_framesize_t framesize, dvbs2_issyi_t issyparam);
+      mode_adapt_bb_impl(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_issyi_t issyparam);
       ~mode_adapt_bb_impl();
 
 

@@ -68,29 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -112,6 +89,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -124,16 +112,28 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -167,162 +167,6 @@ depend:
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/rule:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f CMakeFiles/Makefile2 swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/rule
-.PHONY : swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/rule
-
-# Convenience name for target.
-_dvbs2_swig_swig_tag: swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/rule
-
-.PHONY : _dvbs2_swig_swig_tag
-
-# fast build rule for target.
-_dvbs2_swig_swig_tag/fast:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build.make swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build
-.PHONY : _dvbs2_swig_swig_tag/fast
-
-# Convenience name for target.
-swig/CMakeFiles/dvbs2_swig_swig_doc.dir/rule:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f CMakeFiles/Makefile2 swig/CMakeFiles/dvbs2_swig_swig_doc.dir/rule
-.PHONY : swig/CMakeFiles/dvbs2_swig_swig_doc.dir/rule
-
-# Convenience name for target.
-dvbs2_swig_swig_doc: swig/CMakeFiles/dvbs2_swig_swig_doc.dir/rule
-
-.PHONY : dvbs2_swig_swig_doc
-
-# fast build rule for target.
-dvbs2_swig_swig_doc/fast:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_doc.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_doc.dir/build
-.PHONY : dvbs2_swig_swig_doc/fast
-
-# Convenience name for target.
-swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/rule:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f CMakeFiles/Makefile2 swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/rule
-.PHONY : swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/rule
-
-# Convenience name for target.
-dvbs2_swig_swig_2d0df: swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/rule
-
-.PHONY : dvbs2_swig_swig_2d0df
-
-# fast build rule for target.
-dvbs2_swig_swig_2d0df/fast:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build
-.PHONY : dvbs2_swig_swig_2d0df/fast
-
-# Convenience name for target.
-swig/CMakeFiles/_dvbs2_swig.dir/rule:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f CMakeFiles/Makefile2 swig/CMakeFiles/_dvbs2_swig.dir/rule
-.PHONY : swig/CMakeFiles/_dvbs2_swig.dir/rule
-
-# Convenience name for target.
-_dvbs2_swig: swig/CMakeFiles/_dvbs2_swig.dir/rule
-
-.PHONY : _dvbs2_swig
-
-# fast build rule for target.
-_dvbs2_swig/fast:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig.dir/build.make swig/CMakeFiles/_dvbs2_swig.dir/build
-.PHONY : _dvbs2_swig/fast
-
-# Convenience name for target.
-swig/CMakeFiles/pygen_swig_47ca1.dir/rule:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f CMakeFiles/Makefile2 swig/CMakeFiles/pygen_swig_47ca1.dir/rule
-.PHONY : swig/CMakeFiles/pygen_swig_47ca1.dir/rule
-
-# Convenience name for target.
-pygen_swig_47ca1: swig/CMakeFiles/pygen_swig_47ca1.dir/rule
-
-.PHONY : pygen_swig_47ca1
-
-# fast build rule for target.
-pygen_swig_47ca1/fast:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/pygen_swig_47ca1.dir/build.make swig/CMakeFiles/pygen_swig_47ca1.dir/build
-.PHONY : pygen_swig_47ca1/fast
-
-_dvbs2_swig_swig_tag.o: _dvbs2_swig_swig_tag.cpp.o
-
-.PHONY : _dvbs2_swig_swig_tag.o
-
-# target to build an object file
-_dvbs2_swig_swig_tag.cpp.o:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build.make swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/_dvbs2_swig_swig_tag.cpp.o
-.PHONY : _dvbs2_swig_swig_tag.cpp.o
-
-_dvbs2_swig_swig_tag.i: _dvbs2_swig_swig_tag.cpp.i
-
-.PHONY : _dvbs2_swig_swig_tag.i
-
-# target to preprocess a source file
-_dvbs2_swig_swig_tag.cpp.i:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build.make swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/_dvbs2_swig_swig_tag.cpp.i
-.PHONY : _dvbs2_swig_swig_tag.cpp.i
-
-_dvbs2_swig_swig_tag.s: _dvbs2_swig_swig_tag.cpp.s
-
-.PHONY : _dvbs2_swig_swig_tag.s
-
-# target to generate assembly for a file
-_dvbs2_swig_swig_tag.cpp.s:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/build.make swig/CMakeFiles/_dvbs2_swig_swig_tag.dir/_dvbs2_swig_swig_tag.cpp.s
-.PHONY : _dvbs2_swig_swig_tag.cpp.s
-
-dvbs2_swigPYTHON_wrap.o: dvbs2_swigPYTHON_wrap.cxx.o
-
-.PHONY : dvbs2_swigPYTHON_wrap.o
-
-# target to build an object file
-dvbs2_swigPYTHON_wrap.cxx.o:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig.dir/build.make swig/CMakeFiles/_dvbs2_swig.dir/dvbs2_swigPYTHON_wrap.cxx.o
-.PHONY : dvbs2_swigPYTHON_wrap.cxx.o
-
-dvbs2_swigPYTHON_wrap.i: dvbs2_swigPYTHON_wrap.cxx.i
-
-.PHONY : dvbs2_swigPYTHON_wrap.i
-
-# target to preprocess a source file
-dvbs2_swigPYTHON_wrap.cxx.i:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig.dir/build.make swig/CMakeFiles/_dvbs2_swig.dir/dvbs2_swigPYTHON_wrap.cxx.i
-.PHONY : dvbs2_swigPYTHON_wrap.cxx.i
-
-dvbs2_swigPYTHON_wrap.s: dvbs2_swigPYTHON_wrap.cxx.s
-
-.PHONY : dvbs2_swigPYTHON_wrap.s
-
-# target to generate assembly for a file
-dvbs2_swigPYTHON_wrap.cxx.s:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/_dvbs2_swig.dir/build.make swig/CMakeFiles/_dvbs2_swig.dir/dvbs2_swigPYTHON_wrap.cxx.s
-.PHONY : dvbs2_swigPYTHON_wrap.cxx.s
-
-dvbs2_swig_swig_2d0df.o: dvbs2_swig_swig_2d0df.cpp.o
-
-.PHONY : dvbs2_swig_swig_2d0df.o
-
-# target to build an object file
-dvbs2_swig_swig_2d0df.cpp.o:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/dvbs2_swig_swig_2d0df.cpp.o
-.PHONY : dvbs2_swig_swig_2d0df.cpp.o
-
-dvbs2_swig_swig_2d0df.i: dvbs2_swig_swig_2d0df.cpp.i
-
-.PHONY : dvbs2_swig_swig_2d0df.i
-
-# target to preprocess a source file
-dvbs2_swig_swig_2d0df.cpp.i:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/dvbs2_swig_swig_2d0df.cpp.i
-.PHONY : dvbs2_swig_swig_2d0df.cpp.i
-
-dvbs2_swig_swig_2d0df.s: dvbs2_swig_swig_2d0df.cpp.s
-
-.PHONY : dvbs2_swig_swig_2d0df.s
-
-# target to generate assembly for a file
-dvbs2_swig_swig_2d0df.cpp.s:
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build && $(MAKE) -f swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/build.make swig/CMakeFiles/dvbs2_swig_swig_2d0df.dir/dvbs2_swig_swig_2d0df.cpp.s
-.PHONY : dvbs2_swig_swig_2d0df.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -330,26 +174,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... _dvbs2_swig_swig_tag"
-	@echo "... dvbs2_swig_swig_doc"
-	@echo "... dvbs2_swig_swig_2d0df"
-	@echo "... _dvbs2_swig"
 	@echo "... list_install_components"
-	@echo "... pygen_swig_47ca1"
-	@echo "... install/local"
 	@echo "... test"
-	@echo "... _dvbs2_swig_swig_tag.o"
-	@echo "... _dvbs2_swig_swig_tag.i"
-	@echo "... _dvbs2_swig_swig_tag.s"
-	@echo "... dvbs2_swigPYTHON_wrap.o"
-	@echo "... dvbs2_swigPYTHON_wrap.i"
-	@echo "... dvbs2_swigPYTHON_wrap.s"
-	@echo "... dvbs2_swig_swig_2d0df.o"
-	@echo "... dvbs2_swig_swig_2d0df.i"
-	@echo "... dvbs2_swig_swig_2d0df.s"
+	@echo "... install/local"
+	@echo "... rebuild_cache"
+	@echo "... install"
 .PHONY : help
 
 

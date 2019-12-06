@@ -1,10 +1,2 @@
 # Hashes of file build rules.
 8c0990f0a32312df5860a555bdf05766 CMakeFiles/uninstall
-89592aee666e088177535fbf8c5453e9 swig/CMakeFiles/dvbs2_swig_swig_doc
-89592aee666e088177535fbf8c5453e9 swig/CMakeFiles/pygen_swig_47ca1
-89592aee666e088177535fbf8c5453e9 swig/dvbs2_swig.py
-f5c3a7ebcb04fc99187c9e5a72c3d03f swig/dvbs2_swig.pyc
-15007f92c57288f8fab44389f409beae swig/dvbs2_swig.pyo
-a2f45d825da24ac3824807dbe3aaa1db swig/dvbs2_swig.tag
-89592aee666e088177535fbf8c5453e9 swig/dvbs2_swigPYTHON_wrap.cxx
-3be55c3d2faf8a530c1942a9a6f1cdbb swig/dvbs2_swig_swig_2d0df.cpp

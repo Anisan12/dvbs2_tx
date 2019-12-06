@@ -57,9 +57,33 @@ include lib/CMakeFiles/gnuradio-dvbs2.dir/progress.make
 # Include the compile flags for this target's objects.
 include lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o: ../lib/mode_adapt_bb_impl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o"
+	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc
+
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.i"
+	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc > CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.i
+
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.s"
+	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc -o CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.s
+
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires:
+
+.PHONY : lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires
+
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires
+	$(MAKE) -f lib/CMakeFiles/gnuradio-dvbs2.dir/build.make lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides.build
+.PHONY : lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides
+
+lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides.build: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o
+
+
 lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o: ../lib/bbheader_bb_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbheader_bb_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.i: cmake_force
@@ -83,7 +107,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o.provides.build: lib/CMak
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o: ../lib/bbscrambler_bb_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbscrambler_bb_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.i: cmake_force
@@ -107,7 +131,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o.provides.build: lib/C
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o: ../lib/bch_bb_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bch_bb_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.i: cmake_force
@@ -131,7 +155,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o.provides.build: lib/CMakeFile
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o: ../lib/ldpc_bb_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/ldpc_bb_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.i: cmake_force
@@ -155,7 +179,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o.provides.build: lib/CMakeFil
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o: ../lib/modulator_bc_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/modulator_bc_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.i: cmake_force
@@ -179,7 +203,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o.provides.build: lib/CMa
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o: ../lib/physical_cc_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/physical_cc_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.i: cmake_force
@@ -203,7 +227,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o.provides.build: lib/CMak
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
 lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o: ../lib/interleaver_bb_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o"
 	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/interleaver_bb_impl.cc
 
 lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.i: cmake_force
@@ -225,44 +249,21 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o.provides: lib/CMakeFi
 lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o.provides.build: lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o
 
 
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o: lib/CMakeFiles/gnuradio-dvbs2.dir/flags.make
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o: ../lib/mode_adapt_bb_impl.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o"
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o -c /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc
-
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.i"
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc > CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.i
-
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.s"
-	cd /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc -o CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.s
-
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires:
-
-.PHONY : lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires
-
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires
-	$(MAKE) -f lib/CMakeFiles/gnuradio-dvbs2.dir/build.make lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides.build
-.PHONY : lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides
-
-lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.provides.build: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o
-
-
 # Object files for target gnuradio-dvbs2
 gnuradio__dvbs2_OBJECTS = \
+"CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o" \
 "CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o" \
 "CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o" \
 "CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o" \
 "CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o" \
 "CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o" \
 "CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o" \
-"CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o" \
-"CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o"
+"CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o"
 
 # External object files for target gnuradio-dvbs2
 gnuradio__dvbs2_EXTERNAL_OBJECTS =
 
+lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o
@@ -270,7 +271,6 @@ lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/ldpc_bb_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o
-lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o
 lib/libgnuradio-dvbs2.so: lib/CMakeFiles/gnuradio-dvbs2.dir/build.make
 lib/libgnuradio-dvbs2.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 lib/libgnuradio-dvbs2.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
@@ -284,6 +284,7 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/build: lib/libgnuradio-dvbs2.so
 
 .PHONY : lib/CMakeFiles/gnuradio-dvbs2.dir/build
 
+lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires
 lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o.requires
 lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o.requires
 lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o.requires
@@ -291,7 +292,6 @@ lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/ld
 lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/modulator_bc_impl.cc.o.requires
 lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/physical_cc_impl.cc.o.requires
 lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/interleaver_bb_impl.cc.o.requires
-lib/CMakeFiles/gnuradio-dvbs2.dir/requires: lib/CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o.requires
 
 .PHONY : lib/CMakeFiles/gnuradio-dvbs2.dir/requires
 
