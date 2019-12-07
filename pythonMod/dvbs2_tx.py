@@ -371,7 +371,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.dvbs2_interleaver = dvbs2.interleaver_bb(frame_size, code_rate, modulation)
         self.dvbs2_bch = dvbs2.bch_bb(frame_size, code_rate)
         self.dvbs2_bbscrambler = dvbs2.bbscrambler_bb(frame_size, code_rate)
-        self.dvbs2_bbheader = dvbs2.bbheader_bb(frame_size, code_rate, const_rolloff)
+        self.dvbs2_bbheader = dvbs2.bbheader_bb(frame_size, code_rate, const_rolloff, dvbs2.ISSYI_NOT_ACTIVE, dvbs2.NPD_NOT_ACTIVE)
         self._code_rate_qpsk_options = [dvbs2.C1_4, dvbs2.C1_3, dvbs2.C2_5, dvbs2.C1_2, dvbs2.C3_5, dvbs2.C2_3, dvbs2.C3_4, dvbs2.C4_5, dvbs2.C5_6, dvbs2.C8_9, dvbs2.C9_10]
         self._code_rate_qpsk_labels = ["1/4", "1/3", "2/5", "1/2", "3/5", "2/3", "3/4", "4/5", "5/6", "8/9", "9/10"]
         self._code_rate_qpsk_group_box = Qt.QGroupBox('Code Rate')
