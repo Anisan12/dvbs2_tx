@@ -38,12 +38,6 @@
 #define CCM 1
 #define ACM 0
 
-#define ISSYI_ACTIVE 1
-#define ISSYI_NOT_ACTIVE 0
-
-#define NPD_ACTIVE 1
-#define NPD_NOT_ACTIVE 0
-
 #define FRAME_SIZE_NORMAL 64800
 #define FRAME_SIZE_MEDIUM 32400
 #define FRAME_SIZE_SHORT  16200
@@ -163,12 +157,19 @@ namespace gr {
       FECFRAME_SHORT,
       FECFRAME_MEDIUM,
     };
-    enum dvbs2_issyi_t{
-      ISSYI_COUNTER = 0,
-      ISSYI_BUFFSIZE,
-      ISSYI_BUFFSTAT,
+    
+    enum dvbs2_issyiparam_t{
+     ISSYI_NOT_ACTIVE = 0,
+     ISSYI_COUNTER,
+     ISSYI_BUFFSIZE,
+     ISSYI_BUFFSTAT,
     };
 
+    enum dvbs2_npd_t{
+     NPD_NOT_ACTIVE = 0,
+     NPD_ACTIVE,
+    };
+  
   } // namespace dvbs2
 } // namespace gr
 
@@ -177,7 +178,8 @@ typedef gr::dvbs2::dvbs2_rolloff_factor_t dvbs2_rolloff_factor_t;
 typedef gr::dvbs2::dvbs2_constellation_t dvbs2_constellation_t;
 typedef gr::dvbs2::dvbs2_pilots_t dvbs2_pilots_t;
 typedef gr::dvbs2::dvbs2_framesize_t dvbs2_framesize_t;
-typedef gr::dvbs2::dvbs2_issyi_t dvbs2_issyi_t;
+typedef gr::dvbs2::dvbs2_issyiparam_t dvbs2_issyiparam_t;
+typedef gr::dvbs2::dvbs2_npd_t dvbs2_npd_t;
 
 #endif /* INCLUDED_DVBS2_CONFIG_H */
 

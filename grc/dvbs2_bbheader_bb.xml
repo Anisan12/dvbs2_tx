@@ -401,6 +401,46 @@ $rolloff.val)</make>
       <opt>val:dvbs2.RO_0_05</opt>
     </option>
   </param>
+  <param>
+    <name>Input Stream Synchroniser</name>
+    <key>issyparam</key>
+    <type>enum</type>
+    <option>
+      <name>OFF</name>
+      <key>ISSYI_NOT_ACTIVE</key>
+      <opt>val:dvbs2.ISSYI_NOT_ACTIVE</opt>
+    </option>
+    <option>
+      <name>ISSYI_COUNTER</name>
+      <key>ISSYI_COUNTER</key>
+      <opt>val:dvbs2.ISSYI_COUNTER</opt>
+    </option>
+    <option>
+      <name>ISSYI_BUFFSIZE</name>
+      <key>ISSYI_BUFFSIZE</key>
+      <opt>val:dvbs2.ISSYI_BUFFSIZE</opt>
+    </option>
+    <option>
+      <name>ISSYI_BUFFSTAT</name>
+      <key>ISSYI_BUFFSTAT</key>
+      <opt>val:dvbs2.ISSYI_BUFFSTAT</opt>
+    </option>    
+  </param>
+  <param>
+    <name>Null Packet Detection</name>
+    <key>npdparam</key>
+    <type>enum</type>
+    <option>
+      <name>OFF</name>
+      <key>NPD_NOT_ACTIVE</key>
+      <opt>val:dvbs2.NPD_NOT_ACTIVE</opt>
+    </option>
+    <option>
+      <name>ON</name>
+      <key>NPD_ACTIVE</key>
+      <opt>val:dvbs2.NPD_ACTIVE</opt>
+    </option>
+  </param>
   <sink>
     <name>in</name>
     <type>byte</type>

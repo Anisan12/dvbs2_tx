@@ -26,7 +26,6 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND dvbs2_sources
-    mode_adapt_bb_impl.cc
     bbheader_bb_impl.cc
     bbscrambler_bb_impl.cc
     bch_bb_impl.cc

@@ -1,4 +1,4 @@
-# Install script for directory: /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc
+# Install script for directory: /home/anisan/dvbs2_tx/grc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,14 +39,13 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/grc/blocks" TYPE FILE FILES
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_bbheader_bb.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_mode_adapt_bb.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_bbscrambler_bb.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_bch_bb.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_ldpc_bb.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_modulator_bc.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_physical_cc.xml"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/grc/dvbs2_interleaver_bb.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_bbheader_bb.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_bbscrambler_bb.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_bch_bb.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_ldpc_bb.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_modulator_bc.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_physical_cc.xml"
+    "/home/anisan/dvbs2_tx/grc/dvbs2_interleaver_bb.xml"
     )
 endif()
 

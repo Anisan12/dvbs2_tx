@@ -1,4 +1,4 @@
-# Install script for directory: /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2
+# Install script for directory: /home/anisan/dvbs2_tx/include/dvbs2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,15 +39,14 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dvbs2" TYPE FILE FILES
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/api.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/bbheader_bb.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/bbscrambler_bb.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/bch_bb.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/ldpc_bb.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/modulator_bc.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/physical_cc.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/interleaver_bb.h"
-    "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/include/dvbs2/mode_adapt_bb.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/api.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/bbheader_bb.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/bbscrambler_bb.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/bch_bb.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/ldpc_bb.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/modulator_bc.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/physical_cc.h"
+    "/home/anisan/dvbs2_tx/include/dvbs2/interleaver_bb.h"
     )
 endif()
 

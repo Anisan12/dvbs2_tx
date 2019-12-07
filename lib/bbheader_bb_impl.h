@@ -62,7 +62,7 @@ namespace gr {
       int add_crc8_bits(unsigned char *, int);
 
      public:
-      bbheader_bb_impl(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff);
+      bbheader_bb_impl(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff, dvbs2_issyiparam_t issyiparam, dvbs2_npd_t npdparam);
       ~bbheader_bb_impl();
 
       void forecast (int noutput_items, gr_vector_int &ninput_items_required);

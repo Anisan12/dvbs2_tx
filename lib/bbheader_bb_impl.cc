@@ -29,16 +29,16 @@ namespace gr {
   namespace dvbs2 {
 
     bbheader_bb::sptr
-    bbheader_bb::make(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff)
+    bbheader_bb::make(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff, dvbs2_issyiparam_t issyiparam, dvbs2_npd_t npdparam)
     {
       return gnuradio::get_initial_sptr
-        (new bbheader_bb_impl(framesize, rate, rolloff));
+        (new bbheader_bb_impl(framesize, rate, rolloff, issyiparam, npdparam));
     }
 
     /*
      * The private constructor
      */
-    bbheader_bb_impl::bbheader_bb_impl(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff)
+    bbheader_bb_impl::bbheader_bb_impl(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff, dvbs2_issyiparam_t issyiparam, dvbs2_npd_t npdparam)
       : gr::block("bbheader_bb",
               gr::io_signature::make(1, 1, sizeof(unsigned char)),
               gr::io_signature::make(1, 1, sizeof(unsigned char)))
@@ -255,8 +255,9 @@ namespace gr {
       f->ts_gs   = TS_GS_TRANSPORT;
       f->sis_mis = SIS_MIS_SINGLE;
       f->ccm_acm = CCM;
-      f->issyi   = ISSYI_NOT_ACTIVE;
-      f->npd     = NPD_NOT_ACTIVE;
+      if(issyiparam != ISSYI_NOT_ACTIVE) f->issyi = TRUE;
+      else                               f->issyi = FALSE;
+      f->npd     = npdparam;
       f->upl     = 188 * 8;
       f->dfl     = kbch - 80;
       f->sync    = 0x47;

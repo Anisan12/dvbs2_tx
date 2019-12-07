@@ -51,7 +51,7 @@ namespace gr {
        * \param rate FEC code rate.
        * \param rolloff DVB-S2 root-raised-cosine filter roll-off.
        */
-      static sptr make(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff);
+      static sptr make(dvbs2_framesize_t framesize, dvbs2_code_rate_t rate, dvbs2_rolloff_factor_t rolloff, dvbs2_issyiparam_t issyiparam, dvbs2_npd_t npdparam);
     };
 
   } // namespace dvbs2

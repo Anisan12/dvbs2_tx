@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/gnuradio-dvbs2.dir/mode_adapt_bb_impl.cc.o"
   "CMakeFiles/gnuradio-dvbs2.dir/bbheader_bb_impl.cc.o"
   "CMakeFiles/gnuradio-dvbs2.dir/bbscrambler_bb_impl.cc.o"
   "CMakeFiles/gnuradio-dvbs2.dir/bch_bb_impl.cc.o"

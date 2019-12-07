@@ -52,14 +52,6 @@ dvbs2/dvbs2_config.h
 gnuradio/block.h
 -
 
-../include/dvbs2/mode_adapt_bb.h
-dvbs2/api.h
--
-dvbs2/dvbs2_config.h
--
-gnuradio/block.h
--
-
 ../include/dvbs2/modulator_bc.h
 dvbs2/api.h
 -
@@ -76,99 +68,87 @@ dvbs2/dvbs2_config.h
 gnuradio/block.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbheader_bb_impl.cc
+/home/anisan/dvbs2_tx/lib/bbheader_bb_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 bbheader_bb_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbheader_bb_impl.h
+/home/anisan/dvbs2_tx/lib/bbheader_bb_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbheader_bb_impl.h
+/home/anisan/dvbs2_tx/lib/bbheader_bb_impl.h
 dvbs2/bbheader_bb.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbscrambler_bb_impl.cc
+/home/anisan/dvbs2_tx/lib/bbscrambler_bb_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 bbscrambler_bb_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbscrambler_bb_impl.h
+/home/anisan/dvbs2_tx/lib/bbscrambler_bb_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bbscrambler_bb_impl.h
+/home/anisan/dvbs2_tx/lib/bbscrambler_bb_impl.h
 dvbs2/bbscrambler_bb.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bch_bb_impl.cc
+/home/anisan/dvbs2_tx/lib/bch_bb_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 bch_bb_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bch_bb_impl.h
+/home/anisan/dvbs2_tx/lib/bch_bb_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/bch_bb_impl.h
+/home/anisan/dvbs2_tx/lib/bch_bb_impl.h
 dvbs2/bch_bb.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/interleaver_bb_impl.cc
+/home/anisan/dvbs2_tx/lib/interleaver_bb_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 interleaver_bb_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/interleaver_bb_impl.h
+/home/anisan/dvbs2_tx/lib/interleaver_bb_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/interleaver_bb_impl.h
+/home/anisan/dvbs2_tx/lib/interleaver_bb_impl.h
 dvbs2/interleaver_bb.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/ldpc_bb_impl.cc
+/home/anisan/dvbs2_tx/lib/ldpc_bb_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 ldpc_bb_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/ldpc_bb_impl.h
+/home/anisan/dvbs2_tx/lib/ldpc_bb_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/ldpc_bb_impl.h
+/home/anisan/dvbs2_tx/lib/ldpc_bb_impl.h
 dvbs2/ldpc_bb.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.cc
+/home/anisan/dvbs2_tx/lib/modulator_bc_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
-gnuradio/io_signature.h
--
-mode_adapt_bb_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.h
-
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/mode_adapt_bb_impl.h
-dvbs2/mode_adapt_bb.h
--
-
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/modulator_bc_impl.cc
-config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 modulator_bc_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/modulator_bc_impl.h
+/home/anisan/dvbs2_tx/lib/modulator_bc_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/modulator_bc_impl.h
+/home/anisan/dvbs2_tx/lib/modulator_bc_impl.h
 dvbs2/modulator_bc.h
 -
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/physical_cc_impl.cc
+/home/anisan/dvbs2_tx/lib/physical_cc_impl.cc
 config.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/config.h
+/home/anisan/dvbs2_tx/lib/config.h
 gnuradio/io_signature.h
 -
 physical_cc_impl.h
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/physical_cc_impl.h
+/home/anisan/dvbs2_tx/lib/physical_cc_impl.h
 
-/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/lib/physical_cc_impl.h
+/home/anisan/dvbs2_tx/lib/physical_cc_impl.h
 dvbs2/physical_cc.h
 -
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/apps
+# Install script for directory: /home/anisan/dvbs2_tx/apps
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

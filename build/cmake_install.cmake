@@ -1,4 +1,4 @@
-# Install script for directory: /home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx
+# Install script for directory: /home/anisan/dvbs2_tx
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,17 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/dvbs2" TYPE FILE FILES "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/cmake/Modules/dvbs2Config.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/dvbs2" TYPE FILE FILES "/home/anisan/dvbs2_tx/cmake/Modules/dvbs2Config.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/include/dvbs2/cmake_install.cmake")
-  include("/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/lib/cmake_install.cmake")
-  include("/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/grc/cmake_install.cmake")
-  include("/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/swig/cmake_install.cmake")
-  include("/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/pythonMod/cmake_install.cmake")
-  include("/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/apps/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/include/dvbs2/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/lib/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/swig/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/python/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/grc/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/apps/cmake_install.cmake")
+  include("/home/anisan/dvbs2_tx/build/docs/cmake_install.cmake")
 
 endif()
 
@@ -60,5 +61,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/louis-normand/Documents/dvb-s2/pfe/dvbs2_tx/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/anisan/dvbs2_tx/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
