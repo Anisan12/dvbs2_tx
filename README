@@ -1,0 +1,68 @@
+# Copyright 2014,2016 Ron Economos
+#
+# This file is part of gr-dvbs2
+#
+# gr-dvbs2 is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+#
+# gr-dvbs2 is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with gr-dvbs2; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street,
+# Boston, MA 02110-1301, USA.
+
+gr-dvbs2
+======
+
+This project has been adapted to our needs to include a better graphical interface along with auto ts file creation.
+The system has been tested with a USRP N210 Radio and Ubuntu 18.04 LTS with Python 2.7.
+
+In order to run the system, you need the following dependencies that you can install with :
+
+sudo apt install git
+sudo apt install cmake
+sudo apt-get install libboost-all-dev
+sudo apt install gnuradio
+sudo apt-get install doxygen
+sudo apt install graphviz
+sudo apt install swig
+sudo apt install xterm
+sudo apt install ffmpeg
+
+
+To build and install, type these commands in terminal:
+
+git clone https://github.com/Anisan12/dvbs2_tx
+cd dvbs2_tx/
+mkdir build
+cd build
+cmake ../
+make
+sudo make install
+sudo ldconfig
+
+
+Before executing for the first time, make sure you delete this file : ~/dvbs2_tx/pythonMod/dvbs2.conf
+Also create a folder named "videos" in your home directory ~/videos/ where you put the original The_Maker.mp4 video file
+
+To execute the program, run:
+~/dvbs2_tx/pythonMod/dvbs2_tx.py
+
+
+Accepted symbol rate is 5 000 000. If you need to modify, use this tool: 
+
+wget https://raw.githubusercontent.com/drmpeg/dtv-utils/master/dvbs2rate.c
+gcc dvbs2rate.c -o dvbs2rate -lm
+./dvbs2rate 5000000
+(where you replace 5000000 with your desired symbole rate)
+
+*Please note you should also modify the file ~/dvbs2_tx/PythonMod/dvbs2_tx.py to the corresponding symbol rate (search for symbol_rate)
+*You should also modify the rates file to make the corresponding changes with this command:
+./dvbs2rate 5000000 > ~/dvbs2_tx/pythonMod/rates.txt
+(where you replace 5000000 with your desired symbole rate)
