@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Dvbs2 Tx
-# Generated: Sat Dec  7 18:46:49 2019
+# Generated: Sat Dec  7 19:00:10 2019
 ##################################################
 
 from distutils.version import StrictVersion
@@ -145,7 +145,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         self.dvbs2_bch_bb_0 = dvbs2.bch_bb(dvbs2.FECFRAME_NORMAL, dvbs2.C3_4)
         self.dvbs2_bbscrambler_bb_0 = dvbs2.bbscrambler_bb(dvbs2.FECFRAME_NORMAL, dvbs2.C3_4)
         self.dtv_dvb_bbheader_bb_0 = dtv.dvb_bbheader_bb(dtv.STANDARD_DVBS2, dtv.FECFRAME_NORMAL, dtv.C3_4, dtv.RO_0_20, dtv.INPUTMODE_NORMAL, dtv.INBAND_OFF, 168, 4000000)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, '/home/anisan/videos/toystory/100.ts', True)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, '/home/anisan/videos/toystory/700.ts', True)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
 
 
