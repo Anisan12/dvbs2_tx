@@ -51,10 +51,10 @@ sudo ldconfig
 Before executing for the first time, make sure you delete this file : ~/dvbs2_tx/pythonMod/dvbs2.conf
 Also create a folder named "videos" in your home directory ~/videos/ where you put the original The_Maker.mp4 video file
 
-** In case you don't have the original The_Maker.mp4**
+*** In case you don't have the original The_Maker.mp4 ***
 1. Delete the file ~/dvbs2_tx/pythonMod/dvbs2.conf
 2. Run the script ~/dvbs2_tx/pythonMod/dvbs2_tx.py, it will generate an error
-3. Modify the file ~/dvbs2_tx/pythonMod/dvbs2.conf, first line is the path to the video of your choice (preferably in the folder ~/videos/)
+3. Modify the file ~/dvbs2_tx/pythonMod/dvbs2.conf: first line should be the path to the video of your choice (preferably in the folder ~/videos/)
 
 To execute the program, run:
 ~/dvbs2_tx/pythonMod/dvbs2_tx.py
