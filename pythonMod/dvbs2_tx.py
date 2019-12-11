@@ -362,7 +362,7 @@ class dvbs2_tx(gr.top_block, Qt.QWidget):
         for c in range(1, 2):
             self.top_grid_layout.setColumnStretch(c, 1)
         self.file_source = blocks.file_source(gr.sizeof_char*1, fileTS, True)
-        self.file_source.set_begin_tag(pmt.PMT_NIL)
+        #self.file_source.set_begin_tag(pmt.PMT_NIL)
         self.fft_filter = filter.fft_filter_ccc(1, (firdes.root_raised_cosine(1.0, samp_rate, samp_rate/2, rolloff, taps)), 1)
         self.fft_filter.declare_sample_delay(0)
         self.dvbs2_physical = dvbs2.physical_cc(frame_size, code_rate, modulation, pilots, 0)
